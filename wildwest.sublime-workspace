@@ -1,0 +1,1550 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"a",
+				"append"
+			],
+			[
+				"append",
+				"appendChild"
+			],
+			[
+				"preloader",
+				"preloader-text"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"perce",
+				"percentPreloader"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"ima",
+				"imagesLoaded"
+			],
+			[
+				"l",
+				"log"
+			],
+			[
+				"clos",
+				"closest"
+			],
+			[
+				"add",
+				"addClass"
+			],
+			[
+				"accordio",
+				"accordion-arrow"
+			],
+			[
+				"remove",
+				"removeClass"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"slide",
+				"slidesArrows"
+			],
+			[
+				"ta",
+				"tasksView"
+			],
+			[
+				"re",
+				"render"
+			],
+			[
+				"ap",
+				"App"
+			],
+			[
+				"tas",
+				"tasks"
+			],
+			[
+				"ex",
+				"extend"
+			],
+			[
+				"Ta",
+				"tasks"
+			],
+			[
+				"comp",
+				"compleated"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"S",
+				"Schema"
+			],
+			[
+				"app",
+				"appointmentView"
+			],
+			[
+				"A",
+				"AppointmentView"
+			],
+			[
+				"show",
+				"showAppointment"
+			],
+			[
+				"sho",
+				"showAppointment"
+			],
+			[
+				"new",
+				"newTaskTitle"
+			],
+			[
+				"edit",
+				"editTask"
+			],
+			[
+				"collecti",
+				"Collection"
+			],
+			[
+				"T",
+				"Tasks"
+			],
+			[
+				"pe",
+				"personView"
+			],
+			[
+				"per",
+				"person"
+			],
+			[
+				"Pe",
+				"PersonView"
+			],
+			[
+				"People",
+				"PeopleCollection"
+			],
+			[
+				"Person",
+				"PersonView"
+			],
+			[
+				"wor",
+				"work"
+			],
+			[
+				"cl",
+				"click"
+			],
+			[
+				"admi",
+				"admin_name"
+			],
+			[
+				"secret",
+				"secret_enter_key"
+			],
+			[
+				"login",
+				"LoginController"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"compa",
+				"company_id"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"va",
+				"var_dump"
+			],
+			[
+				"company",
+				"company_id"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"fo",
+				"form"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"goo",
+				"GoogleMapsInit"
+			],
+			[
+				"addClass",
+				"addClassToOneInGroup"
+			],
+			[
+				"he",
+				"helpers"
+			],
+			[
+				"fi",
+				"final-action"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"tha",
+				"that"
+			],
+			[
+				"outline",
+				"outline-thumb"
+			],
+			[
+				"right",
+				"right-content"
+			],
+			[
+				"e",
+				"each"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"fl",
+				"float"
+			],
+			[
+				"bo",
+				"border-radius"
+			],
+			[
+				"to",
+				"top"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"json",
+				"json_encode"
+			],
+			[
+				"off",
+				"offsetTop"
+			],
+			[
+				"mou",
+				"mouseup"
+			],
+			[
+				"data",
+				"data-val"
+			],
+			[
+				"ctrl",
+				"ctrlPressed"
+			],
+			[
+				"registration",
+				"registration_status"
+			],
+			[
+				"registrati",
+				"registration_confirm"
+			],
+			[
+				"cou",
+				"country"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"stri",
+				"stringToPush"
+			],
+			[
+				"from",
+				"fromIndex"
+			],
+			[
+				"original",
+				"originalString"
+			],
+			[
+				"care",
+				"caretPosition"
+			],
+			[
+				"idarr",
+				"idArrayWith"
+			],
+			[
+				"active",
+				"active-cell"
+			],
+			[
+				"get",
+				"getCaretPosition"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"exce",
+				"excel-cell-clone"
+			],
+			[
+				"ev",
+				"event"
+			],
+			[
+				"w",
+				"window"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"pre",
+				"preventDefault"
+			],
+			[
+				"tr",
+				"true"
+			],
+			[
+				"Ke",
+				"keyCode"
+			],
+			[
+				"se",
+				"setTimeout"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"ha",
+				"hasClass"
+			],
+			[
+				"mouse",
+				"mousedown"
+			],
+			[
+				"bor",
+				"border-left"
+			],
+			[
+				"checkV",
+				"checkValidPassword"
+			],
+			[
+				"has",
+				"has-error"
+			],
+			[
+				"navbar",
+				"navbarSearch"
+			],
+			[
+				"sc",
+				"scripts"
+			],
+			[
+				"remo",
+				"removeUserTextSelection"
+			],
+			[
+				"click",
+				"click"
+			],
+			[
+				"offset",
+				"offsetLeft"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"th",
+				"that"
+			],
+			[
+				"stop",
+				"stopPropagation"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"addC",
+				"addClassToOneInGroup"
+			],
+			[
+				"dbl",
+				"dblclick"
+			],
+			[
+				"o",
+				"overflow"
+			],
+			[
+				"hi",
+				"hideDocumentPopup"
+			],
+			[
+				"no",
+				"no-repeat"
+			],
+			[
+				"im",
+				"important"
+			],
+			[
+				"document",
+				"document_mode"
+			],
+			[
+				"create",
+				"createEmaildocumentListeners"
+			],
+			[
+				"loc",
+				"locatin-place"
+			],
+			[
+				"lo",
+				"locatin-text"
+			],
+			[
+				"whe",
+				"when-date"
+			],
+			[
+				"req",
+				"required-email"
+			],
+			[
+				"required",
+				"required-text"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"c",
+				"content"
+			],
+			[
+				"ov",
+				"overflow"
+			],
+			[
+				"sto",
+				"stopPropagation"
+			],
+			[
+				"hid",
+				"hide"
+			],
+			[
+				"second",
+				"secondsStr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/views/pages/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 136,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/package.json",
+			"settings":
+			{
+				"buffer_size": 596,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/css/sass/main.scss",
+			"settings":
+			{
+				"buffer_size": 24,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/css/main.css",
+			"settings":
+			{
+				"buffer_size": 109,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/js/gulpfile.js",
+			"settings":
+			{
+				"buffer_size": 1175,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "public/css/sass/partials/_test.scss",
+			"settings":
+			{
+				"buffer_size": 67,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/js_footers/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 76,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/layouts/master.blade.php",
+			"settings":
+			{
+				"buffer_size": 614,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/routes.php",
+			"settings":
+			{
+				"buffer_size": 462,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bootstrap/autoload.php",
+			"settings":
+			{
+				"buffer_size": 2453,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bootstrap/start.php",
+			"settings":
+			{
+				"buffer_size": 2328,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/YUI Compressor/YUI Compressor.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"mark",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"Markdown",
+				"Markdown Preview: Save to HTML"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: I",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Hackaton/Project structure/wildwest",
+		"/D/Hackaton/Project structure/wildwest/app",
+		"/D/Hackaton/Project structure/wildwest/app/config",
+		"/D/Hackaton/Project structure/wildwest/app/config/local",
+		"/D/Hackaton/Project structure/wildwest/app/lang",
+		"/D/Hackaton/Project structure/wildwest/app/views",
+		"/D/Hackaton/Project structure/wildwest/app/views/js_footers",
+		"/D/Hackaton/Project structure/wildwest/app/views/layouts",
+		"/D/Hackaton/Project structure/wildwest/app/views/pages",
+		"/D/Hackaton/Project structure/wildwest/bootstrap",
+		"/D/Hackaton/Project structure/wildwest/public",
+		"/D/Hackaton/Project structure/wildwest/public/css",
+		"/D/Hackaton/Project structure/wildwest/public/css/sass",
+		"/D/Hackaton/Project structure/wildwest/public/js"
+	],
+	"file_history":
+	[
+		"/D/Hackaton/Project structure/wildwest/public/css/main.css.map",
+		"/D/Hackaton/Project structure/wildwest/app/config/local/app.php",
+		"/D/Hackaton/Project structure/wildwest/public/js/main.js",
+		"/D/Hackaton/Project structure/wildwest/public/css/main.css",
+		"/D/Hackaton/Project structure/wildwest/public/css/sass/external/_test.scss",
+		"/D/Hackaton/Project structure/wildwest/public/gulpfile.js",
+		"/D/Hackaton/Project structure/wildwest/public/css/sass/main.scss",
+		"/D/Hackaton/Project structure/wildwest/public/package.json",
+		"/D/Hackaton/Project structure/wildwest/public/robots.txt",
+		"/D/Hackaton/Project structure/wildwest/public/index.php",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/jq.js",
+		"/C/Users/user/Desktop/jqtest/j.js",
+		"/D/Hackaton/Project structure/wildwest/public/jam/require.config.js",
+		"/C/Users/user/Desktop/bucketTest/testrepo/hello.txt",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/jq.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core2/cartridge/templates/default/checkout/test/BBYShippingBillingAddressJSON.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/templates/default/components/header/htmlheadcategory.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/templates/default/components/header/htmlhead.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/fakeconfig.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/manual_import_export/ecom-enable/meta/custom-objecttype-definitions.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/app/threeSixty.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/pipelines/ReportingEvent.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/templates/resources/rendering_en_GB.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/index.html",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/Gruntfile.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/node_modules/bower/node_modules/handlebars/coverage/lcov-report/spec/env/runner.js.html",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/templates/resources/motomaker.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/templates/default/pages/configurator/index_configurator_bak.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/templates/resources/socialshare.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/socialWidgetView.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/support_order_watcher/cartridge/support_order_watcher.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/sim-card.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_configurator_flash/fla/configurator.fla",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/scripts/util/config/configUIHelper.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/config.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/spec/phoneModelSpec.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/spec/carrierModelSpec.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/collections/accessoriesCollection.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/bower.json",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/package.json",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/templates/default/fragments/site/socialheadersfacebook.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/bower_components/mocha/Readme.md",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/spec/memoryOptionModelSpec.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/bower.json",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/spec/accessoryModelSpec.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/config.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/test/main.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/node_modules/grunt-requirejs/node_modules/gzip-js/node_modules/deflate-js/test/runner.py",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/components/lodash/test/run-test.sh",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/node_modules/grunt-contrib-connect/node_modules/connect/node_modules/buffer-crc32/tests/crc.test.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/console-browserify/.testem.json",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/components/backbone/.travis.yml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/.editorconfig",
+		"/D/Projects/Demandware/Motorola/repo/demandware/manual_import_export/avalon-cutover-1.0/test-products.txt",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/bc_jobframework/cartridge/templates/default/job/taskEntries.isml",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/Lesson5Operators.md",
+		"/D/Projects/Demandware/Motorola/repo/demandware/sites/site_template/meta/system-objecttype-extensions.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/manual_import_export/defaultresources/meta/defaultResourceMessages.xml",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/Lesson4FindingDocumentsandChoosingFields.md",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/lesson1Basic_cmd_commands.md",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/Lesson3RelatingDocuments.md",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/lesson2Ids.md",
+		"/D/Projects/Demandware/Motorola/repo/demandware/moto.sublime-project",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/int_dwunit/cartridge/scripts/mock/mockAddresses.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_marketing/cartridge/mmi_marketing.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/static/default/js/AC_RunActiveContent.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/scripts/checkout/AddOrderCustomAttributes.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/collections/userDesignCollection.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/pipelines/CARD_SVC_ContentStack_WithoutStickyNav.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/pipelines/CARD_SVC_ContentStack_WithStickyNav.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/scripts/vo/social/pinterestVO.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/routers/appRouter.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/core/triggerDefaultSelections.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/applicationView.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/app.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/carrier.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/core/eventAggregator.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/lib/engine/selections.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/pricingWidgetView.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/planView.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/controllers/appController.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/import_export/mm-2.0/meta/system-objecttype-extensions.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/scripts/util/config/optionsConfig.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/gsmCompositeView.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/views/pricingWidgetLayout.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/app/scripts/main.min.js",
+		"/C/Users/user/Desktop/flexr2Link.txt",
+		"/C/Users/user/Desktop/lk;.txt",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/static/default/js/app.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/pipelines/AC_PG_Profile.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/scripts/commands/content/getThreeSixtyContentHeroVO.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/templates/default/fragments/content/threesixtyimageright.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/int_googleFeed/.metadata/.plugins/org.eclipse.jdt.ui/OpenTypeHistory.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/templates/resources/error_en_HK.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/node_modules/bower/test/core/resolvers/gitHubResolver.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/int_livingston/cartridge/templates/default/restrictedPartyTest.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/int_dwunit/cartridge/scripts/testResult.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/app/jquery.reel.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/int_performance/cartridge/pipelines/Tax.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/int_ads_finance/cartridge/webreferences/madeOffer4x.wsdl",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/webgl/geometry/motox_120613_3.dae",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/static/default/js/motomaker/.sass-cache/5f3b92660cca7a3e89ab800951e3ebda057c5d69/_animation.scssc",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/css/360.css",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/app/ui.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/templates/default/fragments/content/ajaxcontenttemplateiterator.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/app/global.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/templates/default/fragments/site/header.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/app/outOfStockNotification.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core2/cartridge/pipelines/Header.xml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/templates/default/components/header/header.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/templates/default/fragments/product/defaultPDP.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core2/cartridge/templates/default/util/modules.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/static/default/lib/jquery/js/reel/jquery.reel.optimized_14-3.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/templates/default/pages/httpredirecthack.isml",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/components/jquery/jquery.js",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/scripts/app/threeSixty.min.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_mea/cartridge/templates/resources/global.properties",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_motomaker/cartridge/scripts/commands/getLodash.ds",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/static/default/css/ui.css",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_storefront2/cartridge/pipelines/UTIL_INT_Auth.xml",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/readme.txt",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/installation/mongodb.conf",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/installation/GNU-AGPL-3.0",
+		"/C/Users/user/Dropbox/MyProjects/lessons/mongo/installation/README",
+		"/C/Users/user/Desktop/reel/original/jquery.reel.js",
+		"/D/Projects/Demandware/Motorola/repo/demandware/cartridges/mmi_core/cartridge/scripts/catalog/RemoveFromCompareList.ds"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"D:\\Projects\\Demandware\\Motorola\\repo\\demandware",
+			"D:\\Projects\\Demandware\\Motorola\\repo\\demandware\\cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app",
+			"D:\\Projects\\Demandware\\Motorola\\repo\\demandware\\cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\views",
+			"D:\\Projects\\Demandware\\Motorola\\repo\\demandware\\cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app",
+			"D:\\Projects\\Demandware\\Motorola\\repo\\demandware",
+			"<project>",
+			"Where:",
+			"",
+			"D:\\blogProject\\blog",
+			"",
+			"C:\\wamp\\www\\sigmachain_repo\\app\\views\\emails",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"<p>",
+			"p",
+			"sassWatchPAth",
+			"arguments",
+			"domManip",
+			"something",
+			"buildfra",
+			"builbfrag",
+			"parseHTML",
+			"buildfra",
+			"domManip",
+			"buildFragment",
+			"console.log(",
+			" tmp = getAll( safe.appendChild( elem ), \"script\" );",
+			"buildfragment:",
+			"build:fragment",
+			"buildfragment",
+			"motoMakerPath",
+			"ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery",
+			"MOTOROLA_ENSIGHTEN_PRIVACY_REGION_FPC",
+			"onpreload",
+			"centeringWrapper",
+			"return frameUrl.substring",
+			"png",
+			"generateFrameUrl",
+			"firstFrameClean",
+			"pictureArray",
+			"cleanURL",
+			"pictureArray",
+			"png",
+			"reel",
+			"selectedStyle",
+			"generateFrameUrl",
+			"png",
+			"pictureArray",
+			"grunt-serve",
+			"serve:",
+			"serve",
+			"serve:test",
+			"mocha",
+			"loadNpmTasks",
+			"pictureArray",
+			"firstFrameClean",
+			"generateFrameUrl",
+			"firstFrameClean",
+			"pictureArray",
+			"cleanURL",
+			"pictureArray",
+			"firstFrameClean",
+			"models",
+			"models/accessory",
+			"grunt-mocha",
+			"moca",
+			"grunt.loadNpmTasks",
+			"grunt.loadNpmTasks('grunt-mocha');",
+			"test",
+			"Thresixty",
+			"automated test",
+			"test.js",
+			"mocha",
+			"unit test",
+			"socialshare.pinterest.description",
+			"socialshare.facebook.ogDescription",
+			"facebookVO.ds",
+			"file: socialshare.properties",
+			"<meta property=\"og:description\" content=\"${pdict.data.ogdescription}\" />",
+			"Assembled in the USA",
+			"assem",
+			"messages-social",
+			"Assembled in the USA",
+			"Assembled",
+			"assmebled",
+			"assmebled in usa",
+			"attribute-id",
+			"system-objecttype-extensions.xml",
+			"Assembled in the USA",
+			"Assembled in the USA.",
+			"Assembled in the USA",
+			"designed by me",
+			"designed",
+			"initializeRouter",
+			".appRouter",
+			"Motomaker.appRouter",
+			"updateFinancingMessage",
+			"option",
+			"plan-tile",
+			"plans",
+			"pricing-plan-section",
+			"OptionsConfig",
+			"getBackOptions",
+			"getCommonOptions",
+			"getCommonAccentOptions",
+			"getBackplateRestrictedCarriers(",
+			"opts",
+			"subCategory",
+			"getBackplateRestrictedCarriers",
+			"backplateRestrictedCarriers",
+			"setItemAvailabe",
+			"setItemAvailabeForSelectedCarrier",
+			"change:carrier",
+			"carrier",
+			"select:feature",
+			"selectFeature",
+			"carrier",
+			"$('.carrier-item').click",
+			"$(\".carrier-item\").click",
+			"$(\"carrier-item\").click",
+			"carrier",
+			"Motomaker.product.set('carrier'",
+			".carrier",
+			"carrier",
+			"carrierDeepLinkTreatment",
+			"select:simCardCarrier",
+			"selectSimCardCarrier",
+			"set('carrier'",
+			"set(\"carrier\"",
+			"close:widget",
+			"closePricingWidget",
+			"continueDesigning",
+			"continue-designing",
+			"currentView",
+			"current",
+			"appView",
+			"pricingWidget",
+			"currentView",
+			"AboutCarrierView",
+			"aboutView",
+			"aboutCarrierRegion"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/views/pages/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 136,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								74,
+								74
+							],
+							[
+								91,
+								91
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/js/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 596,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								359,
+								374
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "public/css/sass/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 24,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "public/css/main.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 109,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								109,
+								109
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS3/CSS3.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/js/gulpfile.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1175,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								482
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "public/css/sass/partials/_test.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 67,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3,
+								3
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/views/js_footers/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 76,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								76,
+								76
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "app/views/layouts/master.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								553,
+								553
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "app/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 462,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								449,
+								449
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "bootstrap/autoload.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": -0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "bootstrap/start.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2328,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								934,
+								934
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 88.0
+	},
+	"output.find_results":
+	{
+		"height": 244.0
+	},
+	"project": "wildwest.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"config",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\config.js"
+			],
+			[
+				"th",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			],
+			[
+				"reel",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\jquery.reel.js"
+			],
+			[
+				"three",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			],
+			[
+				"socialsha",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\resources\\socialshare.properties"
+			],
+			[
+				"facebook",
+				"cartridges\\int_facebook\\cartridge\\templates\\default\\facebook.isml"
+			],
+			[
+				"thr",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			],
+			[
+				".test.js",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\node_modules\\grunt-mocha\\node_modules\\grunt-lib-phantomjs\\node_modules\\temporary\\test\\dir.test.js"
+			],
+			[
+				"facebookvo.ds",
+				"cartridges\\mmi_storefront2\\cartridge\\scripts\\vo\\social\\facebookVO.ds"
+			],
+			[
+				"sites/site_template/meta/system-objecttype-extensions.xml",
+				"sites\\site_template\\meta\\system-objecttype-extensions.xml"
+			],
+			[
+				"system-objecttype-extensions.xml",
+				"import_export\\mm-2.0\\meta\\system-objecttype-extensions.xml"
+			],
+			[
+				"defaultresourcemessages.xm",
+				"manual_import_export\\defaultresources\\meta\\defaultResourceMessages.xml"
+			],
+			[
+				"appcontroller",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\controllers\\appController.js"
+			],
+			[
+				"app.js",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\app.js"
+			],
+			[
+				"trethixty",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			],
+			[
+				"getthreesixtycontentherovo",
+				"cartridges\\mmi_storefront2\\cartridge\\scripts\\commands\\content\\getThreeSixtyContentHeroVO.ds"
+			],
+			[
+				"thre",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			],
+			[
+				"jquery.reel.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\jquery.reel.js"
+			],
+			[
+				"htmlhead.isml",
+				"cartridges\\mmi_core\\cartridge\\templates\\default\\components\\header\\htmlhead.isml"
+			],
+			[
+				"ajaxcontenttemplateiterator.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\content\\ajaxcontenttemplateiterator.isml"
+			],
+			[
+				"header",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\site\\header.isml"
+			],
+			[
+				"head",
+				"cartridges\\mmi_core\\cartridge\\templates\\default\\components\\header\\header.isml"
+			],
+			[
+				"threesixtyimageright.isml",
+				"cartridges\\mmi_storefront2\\cartridge\\templates\\default\\fragments\\content\\threesixtyimageright.isml"
+			],
+			[
+				"config.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\config.js"
+			],
+			[
+				"http",
+				"cartridges\\mmi_motomaker\\cartridge\\templates\\default\\pages\\httpredirecthack.isml"
+			],
+			[
+				"jquery",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\components\\jquery\\jquery.js"
+			],
+			[
+				"global.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\global.js"
+			],
+			[
+				"ui.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\ui.js"
+			],
+			[
+				"threesixty.js",
+				"cartridges\\mmi_storefront2\\cartridge\\static\\default\\scripts\\app\\threeSixty.js"
+			],
+			[
+				"socialw",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\views\\socialWidgetView.js"
+			],
+			[
+				"productmodel",
+				"cartridges\\mmi_motomaker\\cartridge\\static\\default\\js\\motomaker\\app\\scripts\\core\\productModel.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Projects\\Demandware\\Motorola\\testing.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 389.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

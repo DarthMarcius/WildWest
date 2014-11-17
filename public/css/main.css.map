@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "mappings": "AAAA,CAAE;EACD,SAAS,EAAE,IAAI;EACf,MAAM,EAAE,KAAK;;AAGd,CAAE;EACD,UAAU,EAAE,MAAM",
+  "sources": [
+    "../css/file:/D:/Hackaton/Project%20structure/wildwest/public/css/sass/partials/_test.scss"
+  ],
+  "names": [],
+  "file": "main.css"
+}
