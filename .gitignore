@@ -8,3 +8,7 @@ composer.lock
 Thumbs.db
 public/js/bower_components
 public/js/node_modules
+*.min.css.map
+*.min.js
+*.min.css
+public/js/.sass-cache/
