@@ -15,9 +15,11 @@ Here is a [link](http://sass-lang.com/install) to install guide and docs, dont f
 ##Install the project
 1. Install git you can download it from [here](http://git-scm.com/downloads)
 2. Use git clone to copy our project top your PC if you did not use git before look [here](http://git-scm.com/downloads) for an example
-3. Go to project public/js folder in cmd using `cd` command
-4. Type `npm install` in cmd, **It will install gulp build system and all dependencies for it**
-5. Type `bower install` in cmd, **it will install jquery, underscore, backbone and twitter bootstrap**
+3. Go to the root of the project with `cd` command 
+4. In cmd type `composer install` to install Laravel dependencies
+5. Go to project public/js folder in cmd using `cd` command
+6. Type `npm install` in cmd, **It will install gulp build system and all dependencies for it**
+7. Type `bower install` in cmd, **it will install jquery, underscore, backbone and twitter bootstrap**
 
 ##Install dev tools 
 1. Install [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html) (it will work correct with sass sourcemaps we have)
