@@ -12,3 +12,5 @@ public/js/node_modules
 *.min.js
 *.min.css
 public/js/.sass-cache/
+/nbproject/private/
+/nbproject
