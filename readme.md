@@ -22,7 +22,7 @@ Here is a [link](http://sass-lang.com/install) to install guide and docs, dont f
 7. Type `bower install` in cmd, **it will install jquery, underscore, backbone and twitter bootstrap**
 
 ##Install dev tools 
-1. Install [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html){:target="_blank"} (it will work correct with sass sourcemaps we have)
+1. Install [Chrome Canary](https://www.google.com/intl/en/chrome/browser/canary.html) (it will work correct with sass sourcemaps we have)
 2. In Chrome install [LiveReload](https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en) plugin
 3. Also you may want to install [cacheKiller](https://chrome.google.com/webstore/detail/cache-killer/jpfbieopdmepaolggioebjmedmclkbap?hl=en) plugin to use in combitation with Live reload
 
