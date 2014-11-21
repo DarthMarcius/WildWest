@@ -1,3 +1,15 @@
+# dir sass-cache
+#################################
+public/js/.sass-cache/
+# all compressed js files
+#################################
+public/js/custom/compressed/
+# all map files
+#################################
+*.map
+# all css files
+#################################
+*.css
 /bootstrap/compiled.php
 /vendor
 composer.phar
@@ -8,11 +20,5 @@ composer.lock
 Thumbs.db
 public/js/bower_components
 public/js/node_modules
-*.min.css.map
-*.min.js
-*.min.css
-public/js/.sass-cache/
 /nbproject/private/
 /nbproject
-# all compressed js files
-public/js/custom/compressed/
