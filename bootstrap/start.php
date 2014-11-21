@@ -29,6 +29,7 @@ $env = $app->detectEnvironment(array(
 	'local' => array(
             'MarkiyanPyts',
             'Marcius-PC',
+            'olegsapishchuk', //OSapishchuk
             'transporter', //ALeshchuk env
             ),
 
