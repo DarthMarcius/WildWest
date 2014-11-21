@@ -14,4 +14,4 @@ public/js/node_modules
 public/js/.sass-cache/
 /nbproject/private/
 /nbproject
-/public/js/custom/compressed/*
+public/js/custom/compressed/*
