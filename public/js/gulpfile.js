@@ -47,10 +47,19 @@ gulp.task('compressBackbone', function() {
     .pipe(livereload())
 });
 
+gulp.task('compressRequireConfig', function() {
+  gulp.src("*config.js")
+    .pipe(jsMinifier())
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest("."))
+    .pipe(livereload())
+});
+
 
 gulp.task('watch', function() {
+  gulp.watch("*config.js", ['compressRequireConfig']);
   gulp.watch(paths.sassWatchPath, ['compressSass']);
   gulp.watch(paths.jsPath, ['compressJs']);
 });
 
-gulp.task('default', ['compressRequireJS', 'compressBackbone', 'compressSass', 'compressJs', 'watch']);
+gulp.task('default', ['compressRequireJS', 'compressRequireConfig', 'compressBackbone', 'compressSass', 'compressJs', 'watch']);

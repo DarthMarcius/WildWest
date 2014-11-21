@@ -1,10 +1,13 @@
 define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 	window.App = {
+		Helpers: {},
 		Models: {},
 		Collections: {},
 		Views: {}
-	}
-	App.Models.Example1 = Backbone.Model.extend({
-		
-	});
+	};
+
+	require(["helpers"]);
+	require(["models"]);
+	require(["views"]);
+	require(["collections"]);
 })

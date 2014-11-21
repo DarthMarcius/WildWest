@@ -1,7 +1,7 @@
 {
 "version": 3,
 "mappings": "AAAA,CAAE,CACD,SAAS,CAAE,IAAI,CACf,MAAM,CAAE,KAAK,CAGd,CAAE,CACD,UAAU,CAAE,MAAM,CAClB,KAAK,CAAE,IAAI",
-"sources": ["file:///D:/Hackaton/Project%20structure/wildwest/public/css/sass/partials/_test.scss"],
+"sources": ["file:///D:/Hackaton/Repotest/WildWest/public/css/sass/partials/_test.scss"],
 "names": [],
 "file": "main.min.css"
 }
