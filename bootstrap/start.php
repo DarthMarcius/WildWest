@@ -31,6 +31,7 @@ $env = $app->detectEnvironment(array(
             'Marcius-PC',
             'olegsapishchuk', //OSapishchuk
             'transporter', //ALeshchuk env
+			'TarasShkromyda'
             ),
 
 ));
