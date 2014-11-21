@@ -1,3 +1,10 @@
-body {
-	@include pos-absolute(10px, 10px);
+p {
+	@include font-face($verdana-arial, 12px, #ccc);
+	@include position(relative, 10px, auto, auto, -10px);
+	@include gradient-horizontal(#fff, #000);
+	@include size(100%, 20px);
+}
+
+b {
+	@include border(1px solid red);
 }

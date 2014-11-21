@@ -1,14 +1,22 @@
-@mixin font-face( $family, $size, $weight: normal, $style: normal) {
+@mixin font-face( $family, $size, $color, $weight: normal, $style: normal) {
   font-family: $family;
   font-size: $size;
   font-weight: $weight;
   font-style: $style;
+  color: $color;
 }
 
-@mixin pos-absolute($top:0, $left:0) {
-    position: absolute;
+@mixin position($pos, $top:0, $left:0, $bottom:auto, $right:auto) {
+    position: $pos;
     top: $top;
     left: $left;
+	bottom: $bottom;
+	right: $right;
+}
+
+@mixin size($width, $height:auto) {
+    width: $width;
+    height: $height;
 }
 
 @mixin border-radius($radius) {
@@ -24,7 +32,7 @@
 	box-shadow: $shadow;
 }
 
-@mixin border($top, $right, $bottom, $left) {
+@mixin border($top, $right:$top, $bottom:$top, $left:$top) {
 	border-top: $top;
 	border-right: $right;
 	border-bottom: $bottom;
