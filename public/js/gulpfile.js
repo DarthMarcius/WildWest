@@ -1,6 +1,6 @@
 var gulp = require("gulp"),
-	livereload = require("gulp-livereload"),
-	rubySass = require("gulp-ruby-sass");
+    livereload = require("gulp-livereload"),
+    rubySass = require("gulp-ruby-sass");
   jsMinifier = require("gulp-uglify")
   rename = require('gulp-rename');
 
@@ -12,7 +12,13 @@ var paths = {
   cssOut: "../css",
   sourcemapPath: "../css",
   jsPath: "custom/*.js",
-  jsOut: "custom/compressed"
+  jsOut: "custom/compressed",
+  backboneModelsPath: "custom/models/*.js",
+  backboneModelsOut: "custom/models/compressed",
+  backboneControllersPath: "custom/controllers/*.js",
+  backboneControllersOut: "custom/controllers/compressed",
+  backboneViewsPath: "custom/views/*.js",
+  backboneViewsOut: "custom/views/compressed"
 };
 
 gulp.task("compressSass", function() {
@@ -39,14 +45,6 @@ gulp.task('compressRequireJS', function() {
     .pipe(livereload())
 });
 
-gulp.task('compressBackbone', function() {
-  gulp.src("bower_components/backbone/backbone.js")
-    .pipe(jsMinifier())
-    .pipe(rename({ suffix: '.min'}))
-    .pipe(gulp.dest("bower_components/backbone"))
-    .pipe(livereload())
-});
-
 gulp.task('compressRequireConfig', function() {
   gulp.src("*config.js")
     .pipe(jsMinifier())
@@ -55,11 +53,61 @@ gulp.task('compressRequireConfig', function() {
     .pipe(livereload())
 });
 
+gulp.task('compressBackbone', function() {
+  gulp.src("bower_components/backbone/backbone.js")
+    .pipe(jsMinifier())
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest("bower_components/backbone"))
+    .pipe(livereload())
+});
+
+gulp.task('compressBackboneModels', function() {
+  gulp.src(paths.backboneModelsPath)
+    .pipe(jsMinifier())
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest(paths.backboneModelsOut))
+    .pipe(livereload())
+});
+
+gulp.task('compressBackboneCollections', function() {
+  gulp.src(paths.backboneControllersPath)
+    .pipe(jsMinifier())
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest(paths.backboneControllersOut))
+    .pipe(livereload())
+});
+
+gulp.task('compressBackboneViews', function() {
+  gulp.src(paths.backboneViewsPath)
+    .pipe(jsMinifier())
+    .pipe(rename({ suffix: '.min'}))
+    .pipe(gulp.dest(paths.backboneViewsOut))
+    .pipe(livereload())
+});
+
+
 
 gulp.task('watch', function() {
   gulp.watch("*config.js", ['compressRequireConfig']);
   gulp.watch(paths.sassWatchPath, ['compressSass']);
   gulp.watch(paths.jsPath, ['compressJs']);
+
+  //MVC
+  gulp.watch(paths.backboneModelsPath, ['compressBackboneModels']);
+  gulp.watch(paths.backboneControllersPath, ['compressBackboneCollections']);
+  gulp.watch(paths.backboneViewsPath, ['compressBackboneViews']);
+
+
 });
 
-gulp.task('default', ['compressRequireJS', 'compressRequireConfig', 'compressBackbone', 'compressSass', 'compressJs', 'watch']);
+var listOfTasksToRun = ['compressRequireJS', 
+                        'compressRequireConfig', 
+                        'compressBackbone', 
+                        'compressBackboneModels', 
+                        'compressBackboneCollections', 
+                        'compressBackboneViews' , 
+                        'compressSass', 
+                        'compressJs', 
+                        'watch'
+                        ]
+gulp.task('default', listOfTasksToRun);

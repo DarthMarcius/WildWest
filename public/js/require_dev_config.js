@@ -9,7 +9,10 @@ require.config({
 		"helpers": "custom/helpers",
 		"models": "custom/models",
 		"views": "custom/views",
-		"collections": "custom/collections"
+		"collections": "custom/collections",
+
+		"test": "custom/models/test"
+
 	}
 })
 require(["app"])
