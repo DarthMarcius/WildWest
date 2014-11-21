@@ -26,8 +26,11 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('MarkiyanPyts',
-		'Marcius-PC'),
+	'local' => array(
+            'MarkiyanPyts',
+            'Marcius-PC',
+            'transporter', //ALeshchuk env
+            ),
 
 ));
 
