@@ -13,5 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('pages.index');
+	return View::make('pages.index');            
 });
+
+Route::get('db_test', 'DbController@showTest');
