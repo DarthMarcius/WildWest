@@ -5,9 +5,10 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		Collections: {},
 		Views: {}
 	};
-
+	require(["bootstrap"]);
 	require(["helpers"]);
 	require(["models"]);
 	require(["views"]);
 	require(["collections"]);
+
 })

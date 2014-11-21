@@ -1,8 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <body>
-	<p>homepage</p>
-	<b>homepage bold</b>
+	@include('headers.index')
+	@include('footers.index')
 	@include('js_footers.index')
 </body>
 @stop
