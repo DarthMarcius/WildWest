@@ -6,10 +6,10 @@ public/js/.sass-cache/
 public/js/custom/compressed/
 # all map files
 #################################
-*.map
+public/css/*.map
 # all css files
 #################################
-*.css
+public/css/*.css
 /bootstrap/compiled.php
 /vendor
 composer.phar
