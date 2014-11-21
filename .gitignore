@@ -1,15 +1,3 @@
-# dir sass-cache
-#################################
-public/js/.sass-cache/
-# all compressed js files
-#################################
-public/js/custom/compressed/
-# all map files
-#################################
-public/css/*.map
-# all css files
-#################################
-public/css/*.css
 /bootstrap/compiled.php
 /vendor
 composer.phar
@@ -22,3 +10,7 @@ public/js/bower_components
 public/js/node_modules
 /nbproject/private/
 /nbproject
+public/js/.sass-cache/
+public/js/custom/compressed/
+*.map
+*.css
