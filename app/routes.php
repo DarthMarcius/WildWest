@@ -38,3 +38,6 @@ Route::get('/test', function()
 {
 	return View::make('pages.index');            
 });
+
+Route::get('/jira', 'JiraController@checkConnectionStatus');
+
