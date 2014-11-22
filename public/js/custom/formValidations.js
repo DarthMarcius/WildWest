@@ -1,6 +1,6 @@
 define(["jquery"], function($) {
 	var formValidations = function() {
-		
+		formValidations.prototype.init();
 	}
 
 	formValidations.prototype = {

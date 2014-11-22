@@ -24,13 +24,7 @@
                         </div>
                     </div>
                     <br>
-                    <div class="form-group">
-                        <label for="password-confirm" class="col-lg-3 control-label text-info">Confirm Password</label>
-                        <div class="col-lg-8">
-                            <input name = "password-confirm" type="password" id="password-confirm" class="form-control" placeholder="Confirm Password">
-                        </div>
-                    </div>
-                    <br>
+                    
                     <div class="form-group">
                         <div class="col-lg-offset-3 col-lg-8">
                             <div class="row">
