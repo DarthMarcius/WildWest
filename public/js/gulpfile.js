@@ -15,8 +15,8 @@ var paths = {
   jsOut: "custom/compressed",
   backboneModelsPath: "custom/models/*.js",
   backboneModelsOut: "custom/models/compressed",
-  backboneControllersPath: "custom/controllers/*.js",
-  backboneControllersOut: "custom/controllers/compressed",
+  backboneCollectionsPath: "custom/collections/*.js",
+  backboneCollectionsOut: "custom/collections/compressed",
   backboneViewsPath: "custom/views/*.js",
   backboneViewsOut: "custom/views/compressed"
 };
@@ -70,10 +70,10 @@ gulp.task('compressBackboneModels', function() {
 });
 
 gulp.task('compressBackboneCollections', function() {
-  gulp.src(paths.backboneControllersPath)
+  gulp.src(paths.backboneCollectionsPath)
     .pipe(jsMinifier())
     .pipe(rename({ suffix: '.min'}))
-    .pipe(gulp.dest(paths.backboneControllersOut))
+    .pipe(gulp.dest(paths.backboneCollectionsOut))
     .pipe(livereload())
 });
 
@@ -94,7 +94,7 @@ gulp.task('watch', function() {
 
   //MVC
   gulp.watch(paths.backboneModelsPath, ['compressBackboneModels']);
-  gulp.watch(paths.backboneControllersPath, ['compressBackboneCollections']);
+  gulp.watch(paths.backboneCollectionsPath, ['compressBackboneCollections']);
   gulp.watch(paths.backboneViewsPath, ['compressBackboneViews']);
 
 

@@ -24,14 +24,14 @@
                                         User name
                                     </label>
                                     <div class="col-lg-8">
-                                        <input name="jira-user-name" id ="jira-user-name" type="number" placeholder="Your Jira user name" class="form-control">
+                                        <input name="jira-user-name" id ="jira-user-name" type="text" placeholder="Your Jira user name" class="form-control">
                                     </div>
                                 </div>  
                                 
                                 <div class="form-group">
                                     <label for="jira-password" class="col-lg-3 control-label text-info">Password</label>
                                     <div class="col-lg-8">
-                                        <input name = "jira-password" type="number" id="jira-password" class="form-control" placeholder="Your jira password">
+                                        <input name = "jira-password" type="text" id="jira-password" class="form-control" placeholder="Your jira password">
                                     </div>
                                 </div>
 
