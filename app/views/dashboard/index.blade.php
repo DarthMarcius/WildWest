@@ -14,43 +14,39 @@
                         </h4>
                     </div>
                     <div id="grace-settings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            {{ Form::open(array('url' => '/', 'role' => 'form', 'id' => 'jira-connect', 'class' => 'form-horizontal')) }}
-                                <div class="form-group">
-                                    <h2 class="text-center text-info">Please enter your Jira credentials</h2>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jira-user-name" class="col-lg-3 control-label text-info">
-                                        User name
-                                    </label>
-                                    <div class="col-lg-8">
-                                        <input name="jira-user-name" id ="jira-user-name" type="text" placeholder="Your Jira user name" class="form-control">
+                        <div class="panel-body container">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                {{ Form::open(array('url' => '/', 'role' => 'form', 'id' => 'jira-connect', 'class' => 'form-horizontal')) }}
+                                    <div class="form-group">
+                                        <h2 class="text-center text-info">Please enter your Jira credentials</h2>
                                     </div>
-                                </div>  
-                                
-                                <div class="form-group">
-                                    <label for="jira-password" class="col-lg-3 control-label text-info">Password</label>
-                                    <div class="col-lg-8">
-                                        <input name = "jira-password" type="text" id="jira-password" class="form-control" placeholder="Your jira password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-lg-offset-3 col-lg-8">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-lg-offset-3">
-                                                <input type="submit" id="jira-connect-button" class="btn  btn-block btn-lg btn-primary" value="Connect to Jira">
-                                            </div>
+                                    <div class="form-group">
+                                        <label for="jira-user-name" class="col-lg-3 control-label text-info">
+                                            User name
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input name="jira-user-name" id ="jira-user-name" type="text" placeholder="Your Jira user name" class="form-control">
                                         </div>
-                                    </div> 
-                                </div>   
-                            </form>
-                            <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
-                                    <input type="botton" id="jira-send-emails" class="btn  btn-block btn-lg btn-info" value="Send Notifications">
-                                </div>
-                            </div>
-                            
+                                    </div>  
+                                    
+                                    <div class="form-group">
+                                        <label for="jira-password" class="col-lg-3 control-label text-info">Password</label>
+                                        <div class="col-lg-8">
+                                            <input name = "jira-password" type="text" id="jira-password" class="form-control" placeholder="Your jira password">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-8">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-lg-offset-3">
+                                                    <input type="submit" id="jira-connect-button" class="btn  btn-block btn-lg btn-primary" value="Connect to Jira">
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>   
+                                </form>  
+                            </div>                          
                         </div>
                     </div>
                 </div>
@@ -66,49 +62,51 @@
                         </h4>
                     </div>
                     <div id="grace-settings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                            {{ Form::open(array('url' => '/', 'role' => 'form', 'id' => 'form-grace', 'class' => 'form-horizontal')) }}
-                                <div class="form-group">
-                                    <h2 class="text-center text-info">Please set the notifications grace period</h2>
-                                </div>
-                                <div class="form-group">
-                                    <label for="days" class="col-lg-3 control-label text-info">
-                                        Days
-                                    </label>
-                                    <div class="col-lg-8">
-                                        <input name="days" id ="days" type="number" placeholder="number of days till notification" class="form-control">
+                        <div class="panel-body container">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                {{ Form::open(array('url' => '/', 'role' => 'form', 'id' => 'form-grace', 'class' => 'form-horizontal')) }}
+                                    <div class="form-group">
+                                        <h2 class="text-center text-info">Please set the notifications grace period</h2>
                                     </div>
-                                </div>  
-                                
-                                <div class="form-group">
-                                    <label for="hours" class="col-lg-3 control-label text-info">Hours</label>
-                                    <div class="col-lg-8">
-                                        <input name = "hours" type="number" id="hours" class="form-control" placeholder="number of hours till notification">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="minutes" class="col-lg-3 control-label text-info">Minutes</label>
-                                    <div class="col-lg-8">
-                                        <input name = "minutes" type="number" id="minutes" class="form-control" placeholder="number of minutes till notification">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <div class="col-lg-offset-3 col-lg-8">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-lg-offset-3">
-                                                <input type="submit" id="grace-button" class="btn  btn-block btn-lg btn-primary" value="Set Grace Period">
-                                            </div>
+                                    <div class="form-group">
+                                        <label for="days" class="col-lg-3 control-label text-info">
+                                            Days
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input name="days" id ="days" type="number" placeholder="number of days till notification" class="form-control">
                                         </div>
-                                    </div> 
-                                </div>   
-                            </form>
+                                    </div>  
+                                    
+                                    <div class="form-group">
+                                        <label for="hours" class="col-lg-3 control-label text-info">Hours</label>
+                                        <div class="col-lg-8">
+                                            <input name = "hours" type="number" id="hours" class="form-control" placeholder="number of hours till notification">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="minutes" class="col-lg-3 control-label text-info">Minutes</label>
+                                        <div class="col-lg-8">
+                                            <input name = "minutes" type="number" id="minutes" class="form-control" placeholder="number of minutes till notification">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-3 col-lg-8">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-lg-offset-3">
+                                                    <input type="submit" id="grace-button" class="btn  btn-block btn-lg btn-primary" value="Set Grace Period">
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>   
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>>
+            </div>
         </div>
         <div class="row">
             <div class="jira-users-panel col-lg-7 col-md-7 col-sm-7">
