@@ -24,6 +24,11 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('notificate-users', 'BaseController@doNotificate');
 	Route::get('jira/getUsersActivity/{timebegin}/{timeend}', 'JiraController@getUsersActivity', array())->where(array('timebegin' =>'[0-9]+','timeend' =>'[0-9]+'));
 	Route::get('jira/getUsersActivity', 'JiraController@getUsersActivity', array());
+	Route::get('jira/getAllWorkLogsToIssue/{issueIdOrKey}', 'JiraController@getAllWorkLogsToIssue');
+	Route::get('jira/getAllIssuesForProject/{projectName}', 'JiraController@getAllIssuesForProject');
+	Route::get('jira/getAllIssuesForProject', 'JiraController@getAllIssuesForProject');
+	Route::get('jira/showAllWorkLogsToProject/{projectName}', 'JiraController@showAllWorkLogsToProject');
+	Route::get('jira/showAllWorkLogsToProject', 'JiraController@showAllWorkLogsToProject');
 });
 
 Route::any('login', 'BaseController@login');

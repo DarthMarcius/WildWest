@@ -59,45 +59,145 @@ class JiraController extends BaseController
     }
 
     /**
+     * @param $request rest/api/2/ REQUEST COMMAND FROM https://docs.atlassian.com/jira/REST/latest/
+     * @return array RETURN RESPONSE ARRAY WHAT CAN BE DECODED IN JSON
+     * @throws \Jyggen\Curl\Exception\CurlErrorException
+     * @throws \Jyggen\Curl\Exception\ProtectedOptionException
+     */
+    public function _getResponse($request){
+        $request = new \Jyggen\Curl\Request($this->url . $request);
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        return $request->getResponse();
+    }
+
+    /**
      * @return mixed
      * @throws \Jyggen\Curl\Exception\CurlErrorException
      * @throws \Jyggen\Curl\Exception\ProtectedOptionException
      */
     public function getProjects()
     {
-        $request = new \Jyggen\Curl\Request($this->url . self::GET_PROJECT);
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-        print_r(json_decode($response->getContent()));
+        $response = $this->_getResponse(self::GET_PROJECT);
+
+        var_dump(json_decode($response->getContent()));
 
         return View::make('pages.index');
     }
 
     /**
-     * @return array RETURN ARRAY OF USERS ASSIGNED TO DEFAULT PROJECT
+     * GET ALL ISSUES TO CURRENT PROJECT
+     * @param bool $projectName
+     * @return array ARRAY OF ISSUES WITH INFO
+     */
+    public function getAllIssuesForProject($projectName=FALSE)
+    {
+        if($projectName===FALSE){
+            $projectName = self::DEFAULT_PROJECT;
+        }
+        $response = $this->_getResponse('search?jql=project%20%3D%20'.$projectName.'&maxResults=-1');
+        $objects= json_decode($response->getContent());
+        $allIssues = array();
+        foreach ($objects->issues as $object) {
+            $allIssues[] = array(
+                'issueId' => $object->id,
+                'issueKey' => $object->key,
+                'issueName' => $object->fields->summary,
+                'issueDescription'    => $object->fields->description
+            );
+        }
+
+        return $allIssues;
+    }
+
+    /**
+     * @return array OF ALL USERS ASSIGNED TO THE PROJECT
      * @throws \Jyggen\Curl\Exception\CurlErrorException
      * @throws \Jyggen\Curl\Exception\ProtectedOptionException
      */
     public function getUsers()
     {
-        $request = new \Jyggen\Curl\Request($this->url . 'user/assignable/multiProjectSearch?projectKeys=' . self::DEFAULT_PROJECT);
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-        $usersObject = json_decode($response->getContent());
+        $response = $this->_getResponse('user/assignable/multiProjectSearch?projectKeys=' . self::DEFAULT_PROJECT);
+        $objects= json_decode($response->getContent());
         $allUsers = array();
-        foreach ($usersObject as $userObject) {
+        foreach ($objects as $object) {
             $allUsers[] = array(
-                'userId' => $userObject->name,
-                'userName' => $userObject->name,
-                'userEmailAddress' => $userObject->emailAddress,
-                'active'    => $userObject->active
+                'userId' => $object->name,
+                'userName' => $object->name,
+                'userEmailAddress' => $object->emailAddress,
+                'active'    => $object->active
             );
         }
 
         return $allUsers;
     }
+
+    /**
+     * @param $issueIdOrKey CURRENT ISSUE ID OR KEY
+     * @return mixed
+     * @throws \Jyggen\Curl\Exception\CurlErrorException
+     * @throws \Jyggen\Curl\Exception\ProtectedOptionException
+     */
+    public function getAllWorkLogsToIssue($issueIdOrKey)
+    {
+        $response = $this->_getResponse('issue/'.$issueIdOrKey.'/?expand=changelog');
+        $objects= json_decode($response->getContent());
+        $allWorkLogs = array();
+        $objects = $objects->fields->worklog;
+
+        foreach ( $objects as $worklogs) {
+            if(is_array($worklogs)) {
+                foreach($worklogs as $worklog) {
+                    $allWorkLogs[] = array(
+                        'userName' => $worklog->author->name,
+                        'userComment' => $worklog->comment,
+                        'logDate' => $worklog->started,
+                        'logTimeInSeconds'    => $worklog->timeSpentSeconds,
+                        'issueIdOrKey'  =>  $issueIdOrKey
+                    );
+                }
+            }
+        }
+
+        return $allWorkLogs;
+    }
+
+    public function showAllWorkLogsToProject($projectName=FALSE){
+
+        if($projectName===FALSE){
+            $projectName = self::DEFAULT_PROJECT;
+        }
+        $allIssuesForProject = $this->getAllIssuesForProject($projectName);
+        foreach ($allIssuesForProject as $issueProject) {
+            $workLog = $this->getAllWorkLogsToIssue($issueProject['issueKey']);
+            if (!empty($workLog)) {
+                $allWorkLogs[] = $workLog;
+            }
+        }
+
+        var_dump($allWorkLogs);
+    }
+    /**
+     * @return mixed
+     * @throws \Jyggen\Curl\Exception\CurlErrorException
+     * @throws \Jyggen\Curl\Exception\ProtectedOptionException
+     */
+    public function getWorklog()
+    {
+        $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project=HACKWIL&maxResults=-1&fields=worklog');
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        $response = $request->getResponse();
+        $usersObject = json_decode($response->getContent());
+//        var_dump($usersObject); die;
+        $allWorkLogs = array();
+        foreach ($usersObject->issues as $userObject) {
+            var_dump($userObject->fields->worklog->worklogs);
+        }
+
+        return View::make('pages.index');
+    }
+
 
     /**
      * @param bool $timebegin
@@ -122,7 +222,14 @@ class JiraController extends BaseController
         $simple = $response->getContent();
         $xml = simplexml_load_string($simple);
         $json = json_encode($xml);
-        var_dump(json_decode($json));
+        $usersActivityObject = json_decode($json)->entry;
+        foreach ($usersActivityObject as $userActivityObject) {
+            $allActivity[] = array(
+                'author'    =>  $userActivityObject->author->name
+            );
+            var_dump($userActivityObject);
+        }
+//        var_dump($allActivity);
 
         return View::make('pages.index');
     }
@@ -135,18 +242,6 @@ class JiraController extends BaseController
     public function getIssues()
     {
         $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project%20%3D%20' . self::DEFAULT_PROJECT);
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-//        var_dump($response);
-        var_dump(json_decode($response->getContent())->issues[1]->fields);
-
-        return View::make('pages.index');
-    }
-
-    public function getWorklog()
-    {
-        $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project=HACKWIL&fields=worklog');
         $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
         $request->execute();
         $response = $request->getResponse();
