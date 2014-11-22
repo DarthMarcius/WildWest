@@ -14,5 +14,8 @@
     
     <link rel="stylesheet" href="css/main.min.css" type="text/css">
   </head>
-@yield('content')
+  <body>
+      @yield('content')
+  </body>
+
 </html>

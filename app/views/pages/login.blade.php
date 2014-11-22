@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-<body>
     @include('headers.login')
     <div class="container-fluid">
         <div class="row">
@@ -48,5 +47,4 @@
     </div>
     @include('footers.index')
     @include('js_footers.index')
-</body>
 @stop

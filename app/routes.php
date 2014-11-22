@@ -31,3 +31,8 @@ Route::get('login', function()
 });
 */
 Route::get('db_test', 'DbController@showTest');
+
+Route::get('/test', function()
+{
+	return View::make('pages.index');            
+});
