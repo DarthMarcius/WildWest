@@ -29,3 +29,31 @@
 		border: none;
 	}
 }
+
+#users-detail-table {
+	span {
+		font-weight: bold;
+	}
+}
+
+.day_table {
+	margin: 0;
+	&>table{
+		margin: 0;
+	}
+	.date {
+		width: 100%;
+		font-weight: bold;
+		padding: 8px 8px 8px 30px;
+	}
+	.issue_name {
+		width: 40%;
+	}
+	.issue_worklog {
+		width: 10%;
+		font-weight: bold;
+	}
+	.issue_comment {
+		width: 50%;
+	}
+}

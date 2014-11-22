@@ -10,7 +10,66 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		id: "1", 
 		name: "John",
 		surname: "Smith",
-		time: "8h"
+		time: "8h",
+		data: [
+			{
+				time: "17-11",
+				issues: [
+					{
+						id: "id-1",
+						name: "name-1",
+						logwork: "3h",
+						comment: "comment-1",
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+					},
+					{
+						id: "id-2",
+						name: "name-2",
+						logwork: "1h",
+						comment: "comment-2",
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+					}
+				]
+			},	
+			{
+				time: "18-11",
+				issues: [
+					{
+						id: "id-3",
+						name: "name-1",
+						logwork: "3h",
+						comment: "comment-1",
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+					},
+					{
+						id: "id-4",
+						name: "name-2",
+						logwork: "1h",
+						comment: "comment-2",
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+					}
+				]
+			},
+			{
+				time: "19-11",
+				issues: [
+					{
+						id: "id-5",
+						name: "name-1",
+						logwork: "3h",
+						comment: "comment-1",
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+					},
+					{
+						id: "id-6",
+						name: "name-2",
+						logwork: "1h",
+						comment: "comment-2",
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+					}
+				]
+			},				
+		]
 	}; 
     
 	
@@ -64,10 +123,8 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		},
 		
 		showDetails: function(e, id) {
-			console.log(this.$el);
-			console.log(e.currentTarget);
 			new App.Views.UserDetails();
-			//alert(id);
+			new App.Views.DaysTable();
 		}
 
 	});
@@ -77,8 +134,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		el: $("#users-detail-table"),
 		
 		template: _.template(
-			'<tr><td>Summary for <span><%= name %></span> <span><%= surname%></span></td></tr>\
-			<td>Details for:</td><td><%= name %></td>'
+			'<tr><td>Summary for <span><%= name %></span> <span><%= surname%></span></td></tr>'
 		),
 		
 		initialize: function () {
@@ -91,6 +147,57 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 			return this;
 		}
 
+	});
+	
+	App.Views.IssueItem = Backbone.View.extend({
+	
+		tagName: "tr",
+		
+		template: _.template(
+			'<td class="issue_name"><img src="<%= icon %>" width="16" height="16"/> <%= id %>  <%= name %></td>\
+			<td class="issue_worklog"><%= logwork %></td>\
+			<td class="issue_comment"><%= comment %></td>'
+		),
+	
+		render: function () {
+			this.$el.html( this.template(this.model.toJSON()) );
+			return this;
+		}
+
+	});
+	
+	App.Views.DaysTable = Backbone.View.extend({
+	
+		el: $("#users-detail-table"),
+		
+		initialize: function () {
+			this.collection = new App.Collections.Issues( user.data );
+			this.render();
+		},
+		
+		template: _.template(
+			'<table id="<%= time %>" class="day_table table">\
+				<tbody><tr><td class="date"><%= time %></td></tr></tbody>\
+			</table>'
+		),
+		
+		render: function () {
+			var that = this, issueView, arr, id, $table;
+			_.each(this.collection.models, function (item) {
+				arr = item.get("issues"),
+				id = "#"+item.get("time"),
+				$table = $("<table class='table'></table>");
+				this.$el.append( this.template(item.toJSON()) );
+				for (var i=0; i<arr.length; i++) {
+					issueView = new App.Views.IssueItem({
+						model: new App.Models.Issue(arr[i])
+					});
+					$table.append(issueView.render().el);
+					$(id).append($table);
+				}				
+			}, this);
+		},
+				
 	});
 	
 	new App.Views.UsersTable();
