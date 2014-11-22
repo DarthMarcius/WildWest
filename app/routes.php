@@ -10,6 +10,8 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+//add CSRF protection for all routes
+Route::when('*', 'csrf', array('post'));
 
 //route to application main page
 Route::group(array('before' => 'auth'), function(){
@@ -17,8 +19,8 @@ Route::group(array('before' => 'auth'), function(){
 });
 
 Route::any('login', 'BaseController@login');
+Route::any('logout', 'BaseController@logout');
 
-Route::get('dashboard', 'DashboardController@index');
 /*
 Route::get('/', function()
 {
