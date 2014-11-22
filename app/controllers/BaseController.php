@@ -14,5 +14,15 @@ class BaseController extends Controller {
 			$this->layout = View::make($this->layout);
 		}
 	}
+    
+    /**
+     * Show LOGIN page
+     */
+    public function login(){
+        
+        $user = 'test';//array();
+        
+        return View::make('pages.login', array('user' => $user));
+    }
 
 }
