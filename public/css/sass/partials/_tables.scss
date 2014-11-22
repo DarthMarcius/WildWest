@@ -1,0 +1,31 @@
+.panel-body {
+	padding: 0;
+	#users-table {
+		margin: 0;
+		.table_name {
+			width: 30%;
+			text-align: center;
+			&:hover {
+				cursor: pointer;
+				a {
+					color: #2FA4E7;
+					text-decoration: underline;
+				}
+			}
+		}
+		.table_date {
+			width: 10%;
+			font-size: 12px;
+			text-align: center;
+			white-space: normal;
+			@include border(none, none, 1px solid #DDD, 1px solid #DDD);
+		}
+		tbody tr:last-child td{
+			border-bottom: none;
+		}
+	}
+	.table-responsive {
+		margin: 0;
+		border: none;
+	}
+}

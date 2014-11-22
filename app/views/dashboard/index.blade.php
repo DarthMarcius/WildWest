@@ -113,7 +113,18 @@
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table" id="users-table">
-                            
+								<thead>
+									<tr>
+										<td class="table_name"></td>
+										<td class="table_date">Mon 17/11</td>
+										<td class="table_date">Tue 18/11</td>
+										<td class="table_date">Wed 19/11</td>
+										<td class="table_date">Thu 19/11</td>
+										<td class="table_date">Fri 21/11</td>
+										<td class="table_date">Sat 22/11</td>
+										<td class="table_date">Sun 23/11</td>
+									</tr>
+								</thead>
                             </table>
                         </div>
                     </div> 
