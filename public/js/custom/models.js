@@ -1,3 +1,7 @@
 define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
-	console.log(App)
-})
+		
+	App.Models.User = Backbone.Model.extend();
+	
+	require(["collections"]);
+	
+});

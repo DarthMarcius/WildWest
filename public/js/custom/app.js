@@ -1,18 +1,14 @@
 define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
+	
 	window.App = {
 		Helpers: {},
 		Models: {},
 		Collections: {},
 		Views: {}
 	};
+	
 	require(["bootstrap"]);
-	require(["helpers"]);
-
+	require(["formValidations"]);
 	require(["models"]);
-	require(["views"]);
-	require(["collections"]);
-	require(["formValidations"])
-
-	//require(["formValidations"]);
-
-})
+			
+});
