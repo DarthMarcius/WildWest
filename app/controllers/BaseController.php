@@ -19,10 +19,26 @@ class BaseController extends Controller {
      * Show LOGIN page
      */
     public function login(){
+        $email = Input::get('name');
+        $password = Input::get('password');
+            
+        if( $email && $password ){
+            //validate form data
+            
+            if (Auth::attempt(array('email' => $email, 'password' => $password)))
+            {
+                return Redirect::intended('dashboard');
+            }
+            
+        }
         
         $user = 'test';//array();
         
         return View::make('pages.login', array('user' => $user));
+    }
+    
+    public function checkLogin(){
+        
     }
 
 }

@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                <form role="form" id="form-login" class="form-horizontal" action="">
+                {{ Form::open(array('url' => 'login', 'role' => 'form', 'id' => 'form-login', 'class' => 'form-horizontal')) }}
                     <div class="form-group">
                         <h2 class="text-center text-info">Please Login</h2>
                     </div>
@@ -36,7 +36,7 @@
                         <div class="col-lg-offset-3 col-lg-8">
                             <div class="row">
                                 <div class="col-lg-6 col-lg-offset-3">
-                                    <input type="button" id="login-button" class="btn  btn-block btn-lg btn-primary" value="Login">
+                                    <input type="submit" id="login-button" class="btn  btn-block btn-lg btn-primary" value="Login">
                                 </div>
                             </div>
                         </div> 

@@ -16,8 +16,9 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('/', 'DashboardController@index');
 });
 
-Route::get('login', 'BaseController@login');
+Route::any('login', 'BaseController@login');
 
+Route::get('dashboard', 'DashboardController@index');
 /*
 Route::get('/', function()
 {
