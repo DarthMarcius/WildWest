@@ -23,5 +23,21 @@ class DashboardController extends Controller {
         
         return View::make('dashboard.index', $dataToView);
     }
+    
+    /**
+     * Check our DB and return user validation result.
+     */
+    public function checkLogin(){
+        //return validation to AJAX request
+        return TRUE;
+    }
+    
+    /**
+     * Check user by JIRA API and return Validation result.
+     */
+    public function checkJIRAUser(){
+        //return validation to AJAX request
+        return TRUE;
+    }
 
 }

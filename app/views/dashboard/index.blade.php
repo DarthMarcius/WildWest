@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    @include('headers.index')
+    @include('headers.nav_bar')
     <div class="container-fluid">
         <div class="row">
             <div class="jira-users-panel col-lg-12 col-md-12 col-sm-12">
