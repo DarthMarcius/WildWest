@@ -21,9 +21,9 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('jira/getIssues', 'JiraController@getIssues', array());
 	Route::get('jira/getWorklog', 'JiraController@getWorklog', array());
 	Route::get('jira/getHistory', 'JiraController@getHistory', array());
-	Route::get('jira/getUserActivity', 'JiraController@getUserActivity', array());
-    
     Route::get('notificate-users', 'BaseController@doNotificate');
+	Route::get('jira/getUsersActivity/{timebegin}/{timeend}', 'JiraController@getUsersActivity', array())->where(array('timebegin' =>'[0-9]+','timeend' =>'[0-9]+'));
+	Route::get('jira/getUsersActivity', 'JiraController@getUsersActivity', array());
 });
 
 Route::any('login', 'BaseController@login');
@@ -43,4 +43,4 @@ Route::get('/test', function()
 	return View::make('pages.index');            
 });
 
-//Route::get('/jira', 'JiraController@getUsers');
+Route::get('/jira', 'JiraController@checkConnectionStatus');

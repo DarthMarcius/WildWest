@@ -74,6 +74,11 @@ class JiraController extends BaseController
         return View::make('pages.index');
     }
 
+    /**
+     * @return array RETURN ARRAY OF USERS ASSIGNED TO DEFAULT PROJECT
+     * @throws \Jyggen\Curl\Exception\CurlErrorException
+     * @throws \Jyggen\Curl\Exception\ProtectedOptionException
+     */
     public function getUsers()
     {
         $request = new \Jyggen\Curl\Request($this->url . 'user/assignable/multiProjectSearch?projectKeys=' . self::DEFAULT_PROJECT);
@@ -90,10 +95,42 @@ class JiraController extends BaseController
                 'active'    => $userObject->active
             );
         }
-        var_dump($allUsers);
+
+        return $allUsers;
+    }
+
+    /**
+     * @param bool $timebegin
+     * @param bool $timeend
+     * @return mixed
+     * @throws \Jyggen\Curl\Exception\CurlErrorException
+     * @throws \Jyggen\Curl\Exception\ProtectedOptionException
+     */
+    public function getUsersActivity($timebegin = false, $timeend = false)
+    {
+//        http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999&streams=user+IS+WildWest2&_=1416654577838
+        if ($timebegin===FALSE) {
+        $timebegin = 1416520800000;
+        }
+        IF ($timeend===FALSE) {
+            $timeend = 1516520800000;
+        }
+        $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+'.$timebegin.'+'.$timeend);
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        $response = $request->getResponse();
+        $simple = $response->getContent();
+        $xml = simplexml_load_string($simple);
+        $json = json_encode($xml);
+        var_dump(json_decode($json));
 
         return View::make('pages.index');
     }
+//    public function saveUsersToDatabase(){
+//
+//
+//        return TRUE;
+//    }
 
     public function getIssues()
     {
@@ -131,18 +168,4 @@ class JiraController extends BaseController
         return View::make('pages.index');
     }
 
-    public function getUserActivity()
-    {
-//        http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999&streams=user+IS+WildWest2&_=1416654577838
-        $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999');
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-        $simple = $response->getContent();
-        $xml = simplexml_load_string($simple);
-        $json = json_encode($xml);
-        var_dump(json_decode($json)->entry[4]);
-
-        return View::make('pages.index');
-    }
 }
