@@ -27,7 +27,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 						name: "name-2",
 						logwork: "1h",
 						comment: "comment-2",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/task.png"
 					}
 				]
 			},	
@@ -39,7 +39,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 						name: "name-1",
 						logwork: "3h",
 						comment: "comment-1",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/bug.png"
 					},
 					{
 						id: "id-4",
@@ -58,14 +58,14 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 						name: "name-1",
 						logwork: "3h",
 						comment: "comment-1",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/bug.png"
 					},
 					{
 						id: "id-6",
 						name: "name-2",
 						logwork: "1h",
 						comment: "comment-2",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
+						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/task.png"
 					}
 				]
 			},				
@@ -94,6 +94,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 				model: item
 			});
 			this.$el.append( userView.render().el);
+			this.$el.append("<tr class='row_dropdown'><td colspan='8'><table class='table'><tbody></tbody></table></td></tr>");
 		}
 		
 	});
@@ -176,9 +177,9 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		},
 		
 		template: _.template(
-			'<table id="<%= time %>" class="day_table table">\
+			'<tr><td class="issue_row" colspawn=3><table id="<%= time %>" class="day_table table">\
 				<tbody><tr><td class="date"><%= time %></td></tr></tbody>\
-			</table>'
+			</table></td></tr>'
 		),
 		
 		render: function () {

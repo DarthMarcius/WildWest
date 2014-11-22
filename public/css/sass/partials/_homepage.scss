@@ -1,0 +1,69 @@
+.panel-body {
+	padding: 0;
+	#users-table {
+		margin: 0;
+		.table_name {
+			width: 30%;
+			text-align: center;
+			&:hover {
+				cursor: pointer;
+				a {
+					color: #2FA4E7;
+					text-decoration: underline;
+				}
+			}
+		}
+		.table_date {
+			width: 10%;
+			font-size: 12px;
+			text-align: center;
+			white-space: normal;
+			@include border(none, none, 1px solid #DDD, 1px solid #DDD);
+		}
+		tbody tr:last-child td{
+			border-bottom: none;
+		}
+		.row_dropdown {
+			display: none;
+		}
+	}
+	.table-responsive {
+		margin: 0;
+		border: none;
+	}
+}
+
+#users-detail-table {
+	margin: 0;
+	span {
+		font-weight: bold;
+	}
+	.issue_row {
+		padding: 0;
+		& td {
+			border-top: none;
+		}
+	}
+	.day_table {
+		margin: 0;
+		&>table{
+			margin: 0;
+		}
+		.date {
+			width: 100%;
+			font-weight: bold;
+			padding: 8px 8px 8px 30px;
+			border-bottom: 1px solid #ddd;
+		}
+		.issue_name {
+			width: 40%;
+		}
+		.issue_worklog {
+			width: 10%;
+			font-weight: bold;
+		}
+		.issue_comment {
+			width: 50%;
+		}
+	}
+}
