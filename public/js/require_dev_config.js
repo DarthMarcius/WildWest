@@ -7,11 +7,17 @@ require.config({
 		"bootstrap": "bower_components/bootstrap/dist/js/bootstrap",
 		"app": "custom/app",
 		"helpers": "custom/helpers",
+		"formValidations": "custom/formValidations",
+
 		"models": "custom/models",
 		"views": "custom/views",
 		"collections": "custom/collections",
 
-		"test": "custom/models/test"
+		//models
+		//"test": "custom/models/test",
+		//views
+
+		//collections
 
 	}
 })

@@ -7,9 +7,16 @@ require.config({
 		"bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min",
 		"app": "custom/compressed/app.min",
 		"helpers": "custom/compressed/helpers.min",
+		"formValidations": "custom/compressed/formValidations",
+
 		"models": "custom/compressed/models.min",
 		"views": "custom/compressed/views.min",
-		"collections": "custom/compressed/collections.min"
+		"collections": "custom/compressed/collections.min",
+		//models
+		
+		//views
+		
+		//collections
 	}
 })
 require(["app"])

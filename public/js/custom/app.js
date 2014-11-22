@@ -7,8 +7,12 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 	};
 	require(["bootstrap"]);
 	require(["helpers"]);
+
 	require(["models"]);
 	require(["views"]);
 	require(["collections"]);
+	require(["formValidations"])
+
+	//require(["formValidations"]);
 
 })
