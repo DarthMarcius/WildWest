@@ -2,6 +2,14 @@
 @section('content')
     @include('headers.logo_bar')
     <div class="container-fluid">
+        
+        @if(Session::has('error'))
+            <div class="alert-box error">
+                <h2>{{ Session::get('error') }}</h2>
+            </div>
+        @endif
+        
+        
         <div class="row">
             <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
                 {{ Form::open(array('url' => 'login', 'role' => 'form', 'id' => 'form-login', 'class' => 'form-horizontal')) }}
@@ -13,7 +21,7 @@
                             User Name
                         </label>
                         <div class="col-lg-8">
-                            <input name="name" id ="company-name-input" type="text" placeholder="Company Name" class="form-control">
+                            <input name="name" id ="company-name-input" type="text" placeholder="Company Name" class="form-control" value="{{ $visitor_data['name'] }}">
                         </div>
                     </div>  
                     <br>

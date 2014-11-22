@@ -48,11 +48,14 @@ INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, 
                 //redirect to homepage
                 return Redirect::to('/');
             }
+            Session::flash('error', 'Your username or password is invalid. Please try another one.');
         }
         //pass to view entered|default values
-        $user = 'test';//array();
+        $visitor_data = array(
+            'name' => $email
+        );
         
-        return View::make('pages.login', array('user' => $user));
+        return View::make('pages.login', array('visitor_data' => $visitor_data));
     }
     
     /**
