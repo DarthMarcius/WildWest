@@ -5,6 +5,8 @@ require.config({
 		"underscore": "bower_components/underscore/underscore",
 		"backbone": "bower_components/backbone/backbone",
 		"bootstrap": "bower_components/bootstrap/dist/js/bootstrap",
+		"formValidations": "custom/formValidations",
+		
 		"app": "custom/app",	
 		"models": "custom/models",
 		"collections": "custom/collections",

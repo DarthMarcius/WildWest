@@ -17,7 +17,7 @@
                         <h2 class="text-center text-info">Please Login</h2>
                     </div>
                     <div class="form-group">
-                        <label for="company-name-input" class="col-lg-3 control-label text-info">
+                        <label for="user-name-input" class="col-lg-3 control-label text-info">
                             User Name
                         </label>
                         <div class="col-lg-8">

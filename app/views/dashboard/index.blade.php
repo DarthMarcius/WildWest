@@ -45,6 +45,12 @@
                                     </div> 
                                 </div>   
                             </form>
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
+                                    <input type="botton" id="jira-send-emails" class="btn  btn-block btn-lg btn-info" value="Send Notifications">
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -146,6 +152,7 @@
             </div>
         </div>
     </div>
+    @include('modals.dashboardModals')
     @include('footers.index')
     @include('js_footers.index')
 @stop
