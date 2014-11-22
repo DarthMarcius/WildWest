@@ -22,6 +22,8 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('jira/getWorklog', 'JiraController@getWorklog', array());
 	Route::get('jira/getHistory', 'JiraController@getHistory', array());
 	Route::get('jira/getUserActivity', 'JiraController@getUserActivity', array());
+    
+    Route::get('notificate-users', 'BaseController@doNotificate');
 });
 
 Route::any('login', 'BaseController@login');

@@ -63,4 +63,14 @@ INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, 
         Auth::logout();
         return Redirect::to('/login');
     }
+    
+    /**
+     * Send messages to Users
+     * 
+     * @return void
+     */
+    public function doNotificate(){
+        
+        return 'Notification successfully sent.';
+    }
 }
