@@ -18,8 +18,10 @@ class DashboardController extends Controller {
      * Main paige of dashboard.
      */
     public function index(){
+        $dataToView = array(); //add here data which we can render in view
         
-        echo 'dashboard';
+        
+        return View::make('dashboard.index', $dataToView);
     }
 
 }
