@@ -4,9 +4,7 @@
     <div class="container-fluid">
         
         @if(Session::has('error'))
-            <div class="alert-box error">
-                <h2>{{ Session::get('error') }}</h2>
-            </div>
+            @include("modals.loginModals")
         @endif
         
         
@@ -21,7 +19,7 @@
                             User Name
                         </label>
                         <div class="col-lg-8">
-                            <input name="name" id ="company-name-input" type="text" placeholder="Company Name" class="form-control" value="{{ $visitor_data['name'] }}">
+                            <input name="name" id ="user-name-input" type="text" placeholder="Company Name" class="form-control" value="{{ $visitor_data['name'] }}">
                         </div>
                     </div>  
                     <br>

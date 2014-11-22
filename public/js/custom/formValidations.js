@@ -10,7 +10,7 @@ define(["jquery"], function($) {
 		registrationListeners: function() {
 			this.loginListeners();
 			this.notificateUsers();
-			//this.loginSubmit();
+			
 		},
 
 		notificateUsers: function() {
@@ -33,17 +33,26 @@ define(["jquery"], function($) {
 					}
 				});
 			});
-
-
-			
+	
 		},
 		
 		loginListeners: function() {
 			var $loginForm = $("#form-login"),
 				$userName = $("#user-name-input"),
-				$password = $("#password");
+				$password = $("#password"),
+                $loginFailedModal = $("#login-failed-modal");
+            setTimeout(function() {
+                
+                if($loginFailedModal.length) {console.log($loginFailedModal)
+                    $loginFailedModal.modal({
+                        keyboard: true
+                    });
+                }
+            }, 500);
+				
+			
 
-			$userName.focus(function(ev) {
+			$userName.focus(function(ev) {console.log("asdasd")
 				$loginForm.find("*").tooltip("destroy");
 				if($(ev.target).closest(".form-group").hasClass("has-error")) {
 					$(ev.target).closest(".form-group").removeClass("has-error");
@@ -57,14 +66,14 @@ define(["jquery"], function($) {
 				}
 			});
 
-			$userName.blur(function(ev) {
+			$userName.blur(function(ev) {console.log("sdf")
 				if(!App.Helpers.validateInputLength($(ev.target))) {
 					$(ev.target).closest(".form-group").addClass("has-error");
 				}
 				
 			});
 
-			/*$password.focus(function(ev) {
+			$password.focus(function(ev) {
 				$loginForm.find("*").tooltip("destroy");
 				if($(ev.target).closest(".form-group").hasClass("has-error")) {
 					$(ev.target).closest(".form-group").removeClass("has-error");
@@ -83,21 +92,15 @@ define(["jquery"], function($) {
 					$(ev.target).closest(".form-group").addClass("has-error");
 				}
 				
-			});*/
+			});
 			
-			/*$loginForm.on("submit", function(ev) {
-				if(!App.Helpers.validateInputLength($userName)) {
+			$loginForm.on("submit", function(ev) {
+				if($loginForm.find(".form-group").hasClass("has-error")) {
 					ev.preventDefault();
-				}else {
-
-				}
-				if(!App.Helpers.validateInputLength($password)) {console.log("pas too long")
-					ev.preventDefault();
-				}else {
-
-				}
-					
-			})*/
+					$($loginForm.find(".has-error input")[0]).focus();
+				}	
+			});
+				
 			
 		},
 		
