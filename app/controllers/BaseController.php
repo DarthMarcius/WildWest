@@ -73,7 +73,21 @@ INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, 
      * @return void
      */
     public function doNotificate(){
-        
+        //build mail body
+        $userData = array(
+            'project_name'  => 'HackathonWildWest',
+            'pm_name'       => 'Sorin',
+            'pm_surname'    => 'Chircu',
+            'user_name'     => 'WildWest1',
+            'missed_amount' => '2h', //can be in format "2h 30m"
+            'missed_date'   => 'Monday 17 November' //eg: on Monday 17 November
+            );
+        //Mail::pretend();
+        Mail::send('emails.user_notification', $userData, function($message)
+        {
+            $message->from('noreply@wildwest.osf-global.com', 'WildWest team');
+            $message->to('andriy.leshchuk@osf-global.com', 'WildWest1')->subject('Missed hours on JIRA!');
+        });
         return 'Notification successfully sent.';
     }
 }
