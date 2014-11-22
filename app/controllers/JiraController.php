@@ -9,15 +9,16 @@ class JiraController extends BaseController
     const DEFAULT_URL = "http://jiratest.ofactory.biz/jira/rest/api/2/";
     const DEFAULT_LOGIN = "WildWestAdmin";
     const DEFAULT_PASSWORD = "G4qURwJcHD";
+    const DEFAULT_PROJECT = "HACKWIL";
     const GET_PROJECT = 'project/HACKWIL';
-    const GET_ISSUES = 'issues';
-//    /*DECLARE PUBLIC API REQUEST NAMES*/
-//    public $getProject = 'project';
+    const SEARCH = 'search';
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->connectAuthInfo();
     }
+
     public function show()
     {
         $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/rest/api/2/project');
@@ -39,22 +40,22 @@ class JiraController extends BaseController
      */
     public function connectAuthInfo($url = FALSE, $login = FALSE, $password = FALSE)
     {
-        if ($url===FALSE) {
+        if ($url === FALSE) {
             $this->url = self::DEFAULT_URL;
         } else {
             $this->url = $url;
         }
-        if ($login===FALSE) {
+        if ($login === FALSE) {
             $this->login = self::DEFAULT_LOGIN;
         } else {
             $this->login = $login;
         }
-        if ($password===FALSE) {
+        if ($password === FALSE) {
             $this->password = self::DEFAULT_PASSWORD;
         } else {
             $this->password = $password;
 
-    }
+        }
     }
 
     /**
@@ -64,7 +65,7 @@ class JiraController extends BaseController
      */
     public function getProjects()
     {
-        $request = new \Jyggen\Curl\Request($this->url.self::GET_PROJECT);
+        $request = new \Jyggen\Curl\Request($this->url . self::GET_PROJECT);
         $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
         $request->execute();
         $response = $request->getResponse();
@@ -73,16 +74,75 @@ class JiraController extends BaseController
         return View::make('pages.index');
     }
 
-    public function checkConnectionStatus()
+    public function getUsers()
     {
-        $request = new \Jyggen\Curl\Request($this->url.self::GET_PROJECT);
-//        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request = new \Jyggen\Curl\Request($this->url . 'user/assignable/multiProjectSearch?projectKeys=' . self::DEFAULT_PROJECT);
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
         $request->execute();
         $response = $request->getResponse();
-        var_dump($response);
+        $usersObject = json_decode($response->getContent());
+        $allUsers = array();
+        foreach ($usersObject as $userObject) {
+            $allUsers[] = array(
+                'userId' => $userObject->name,
+                'userName' => $userObject->name,
+                'userEmailAddress' => $userObject->emailAddress,
+                'active'    => $userObject->active
+            );
+        }
+        var_dump($allUsers);
 
         return View::make('pages.index');
     }
 
+    public function getIssues()
+    {
+        $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project%20%3D%20' . self::DEFAULT_PROJECT);
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        $response = $request->getResponse();
+//        var_dump($response);
+        var_dump(json_decode($response->getContent())->issues[1]->fields);
 
+        return View::make('pages.index');
+    }
+
+    public function getWorklog()
+    {
+        $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project=HACKWIL&fields=worklog');
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        $response = $request->getResponse();
+//        var_dump($response);
+        var_dump(json_decode($response->getContent())->issues[1]->fields);
+
+        return View::make('pages.index');
+    }
+
+    public function getHistory()
+    {
+        $request = new \Jyggen\Curl\Request($this->url . 'issue/HACKWIL-16?expand=changelog');
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        $response = $request->getResponse();
+//        var_dump($response);
+        var_dump(json_decode($response->getContent())->changelog->histories[5]);
+
+        return View::make('pages.index');
+    }
+
+    public function getUserActivity()
+    {
+//        http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999&streams=user+IS+WildWest2&_=1416654577838
+        $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999');
+        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
+        $request->execute();
+        $response = $request->getResponse();
+        $simple = $response->getContent();
+        $xml = simplexml_load_string($simple);
+        $json = json_encode($xml);
+        var_dump(json_decode($json)->entry[4]);
+
+        return View::make('pages.index');
+    }
 }

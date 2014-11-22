@@ -16,6 +16,12 @@ Route::when('*', 'csrf', array('post'));
 //route to application main page
 Route::group(array('before' => 'auth'), function(){
     Route::get('/', 'DashboardController@index');
+	Route::get('jira/getProjects', 'JiraController@getProjects', array());
+	Route::get('jira/getUsers', 'JiraController@getUsers', array());
+	Route::get('jira/getIssues', 'JiraController@getIssues', array());
+	Route::get('jira/getWorklog', 'JiraController@getWorklog', array());
+	Route::get('jira/getHistory', 'JiraController@getHistory', array());
+	Route::get('jira/getUserActivity', 'JiraController@getUserActivity', array());
 });
 
 Route::any('login', 'BaseController@login');
@@ -29,5 +35,9 @@ Route::get('/', function()
 */
 Route::get('db_test', 'DbController@showTest');
 
-Route::get('/jira', 'JiraController@checkConnectionStatus');
+
+Route::get('/test', function()
+{
+	return View::make('pages.index');            
+});
 
