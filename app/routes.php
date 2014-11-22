@@ -16,4 +16,9 @@ Route::get('/', function()
 	return View::make('pages.index');            
 });
 
+Route::get('login', function()
+{
+	return View::make('pages.login');            
+});
+
 Route::get('db_test', 'DbController@showTest');
