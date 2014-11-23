@@ -8,12 +8,12 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion1" href="#grace-settings" aria-expanded="true" aria-controls="grace-settings">
+                            <a data-toggle="collapse" data-parent="#accordion1" href="#connect-to-jira" aria-expanded="true" aria-controls="connect-to-jira">
                                 Connect to Jira
                             </a>
                         </h4>
                     </div>
-                    <div id="grace-settings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                    <div id="connect-to-jira" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
                         <div class="panel-body container">
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 {{ Form::open(array('url' => '/', 'role' => 'form', 'id' => 'jira-connect', 'class' => 'form-horizontal')) }}

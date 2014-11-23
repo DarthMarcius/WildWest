@@ -19,7 +19,7 @@
                             User Name
                         </label>
                         <div class="col-lg-8">
-                            <input name="name" id ="user-name-input" type="text" placeholder="Company Name" class="form-control" value="{{ $visitor_data['name'] }}">
+                            <input name="name" id ="user-name-input" type="text" placeholder="User Name" class="form-control" value="{{ $visitor_data['name'] }}">
                         </div>
                     </div>  
                     <br>
@@ -43,7 +43,7 @@
                     </div>
                     
                 </form> 
-                <a href="{{ URL::to('password/remind') }}">Remind password</a>
+                
             </div>
         </div>
     </div>

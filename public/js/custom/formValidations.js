@@ -40,15 +40,22 @@ define(["jquery"], function($) {
 			var $loginForm = $("#form-login"),
 				$userName = $("#user-name-input"),
 				$password = $("#password"),
-                $loginFailedModal = $("#login-failed-modal");
+                $Modal = $(".modal");
             setTimeout(function() {
-                
-                if($loginFailedModal.length) {console.log($loginFailedModal)
-                    $loginFailedModal.modal({
+                if($("#password-reminder-form").length) {
+                	if($Modal.attr("id") == "login-failed-modal") {
+                		return
+                	}
+                }
+                if($("#jira-send-emails").length) {
+                	return
+                }
+                if($Modal.length) {
+                    $Modal.modal({
                         keyboard: true
                     });
                 }
-            }, 500);
+            }, 200);
 				
 			
 
