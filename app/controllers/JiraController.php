@@ -200,20 +200,20 @@ class JiraController extends BaseController
         }
         foreach ($allWorkLogs as $workLogs) {
             foreach ($workLogs as $workLog) {
-                    foreach ($workLogs as $workLogInLoop) {
-                        if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
-                            $workLogArray[$workLog['userName']]['worklogs'][] = array(
-                                'userName'  =>  $workLogInLoop['userName'],
-                                'issueIdOrKey' => $workLogInLoop['issueIdOrKey'],
-                                'issueName' => $workLogInLoop['issueName'],
-                                'userComment' => $workLogInLoop['userComment'],
-                                'issueiconUrl' => $workLogInLoop['issueiconUrl'],
-                                'logDate'   =>  $workLogInLoop['logDate'],
-                                'logTimeInSeconds' => $workLogInLoop['logTimeInSeconds'],
-                                'projectName' => $workLogInLoop['projectName']
-                            );
-                        }
+                foreach ($workLogs as $workLogInLoop) {
+                    if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
+                        $workLogArray[$workLog['userName']]['worklogs'][] = array(
+                            'userName' => $workLogInLoop['userName'],
+                            'issueIdOrKey' => $workLogInLoop['issueIdOrKey'],
+                            'issueName' => $workLogInLoop['issueName'],
+                            'userComment' => $workLogInLoop['userComment'],
+                            'issueiconUrl' => $workLogInLoop['issueiconUrl'],
+                            'logDate' => $workLogInLoop['logDate'],
+                            'logTimeInSeconds' => $workLogInLoop['logTimeInSeconds'],
+                            'projectName' => $workLogInLoop['projectName']
+                        );
                     }
+                }
             }
         }
 
@@ -226,12 +226,58 @@ class JiraController extends BaseController
     public function ajaxshowAllWorkLogsToProject()
     {
         if(Request::ajax()) {
-            $projectName = Input::get('projectName');
-            return $this->showAllWorkLogsToProject($projectName);
-
+            return $this->showAllWorkLogsToProject();
         }
     }
 
+    /**
+     * @return array RETURN ARRAY FOR AJAX CALL WITH COUNTED DATA
+     */
+    public function ajaxshowCountedLogs()
+    {
+        if(Request::ajax()) {
+            $allIssuesForProject = $this->getAllIssuesForProject();
+            foreach ($allIssuesForProject as $issueProject) {
+                $workLog = $this->getAllWorkLogsToIssue($issueProject['issueKey']);
+                if (!empty($workLog)) {
+                    $allWorkLogs[] = $workLog;
+                }
+            }
+            $workLogArray = array();
+            foreach ($allWorkLogs as $workLogs) {
+                foreach ($workLogs as $workLog) {
+                    foreach ($workLogs as $workLogInLoop) {
+                        $date = explode('T', $workLogInLoop['logDate'])[0];
+                        if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
+                            $workLogArray[$workLog['userName']]['userName'] = $workLogInLoop['userName'];
+                            $workLogArray[$workLog['userName']]['worklogs']["$date"] = array(
+                                'logDate' => $date
+                            );
+                        }
+                    }
+                }
+            }
+            foreach ($allWorkLogs as $workLogs) {
+                foreach ($workLogs as $workLog) {
+                    foreach ($workLogs as $workLogInLoop) {
+                        $date = explode('T', $workLogInLoop['logDate'])[0];
+                        if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
+                            $workLogArray[$workLog['userName']]['userName'] = $workLogInLoop['userName'];
+                            if(!isset($workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'])) {
+                                $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'] = 0;
+                            }
+                            $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'] = $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds']+$workLogInLoop['logTimeInSeconds'];
+                            $workLogArray[$workLog['userName']]['worklogs']["$date"] += array(
+                                'logTimeInSeconds' => $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds']
+                            );
+                        }
+                    }
+                }
+            }
+
+            return $workLogArray;
+        }
+    }
     /**
      * @return mixed
      * @throws \Jyggen\Curl\Exception\CurlErrorException

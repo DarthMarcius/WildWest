@@ -31,6 +31,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('jira/showAllWorkLogsToProject/{projectName}', 'JiraController@showAllWorkLogsToProject');
 	Route::get('jira/showAllWorkLogsToProject', 'JiraController@showAllWorkLogsToProject');
 	Route::get('/jira/ajaxshowAllWorkLogsToProject', 'JiraController@ajaxshowAllWorkLogsToProject');
+	Route::get('/jira/ajaxshowCountedLogs', 'JiraController@ajaxshowCountedLogs');
 });
 
 Route::any('login', 'BaseController@login');
