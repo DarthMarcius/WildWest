@@ -25,6 +25,13 @@
 		}
 		.row_dropdown {
 			display: none;
+			& > td {
+				padding: 0;
+				table {
+					margin: 0;
+				}
+			}
+			
 		}
 	}
 	.table-responsive {
@@ -65,5 +72,23 @@
 		.issue_comment {
 			width: 50%;
 		}
+	}
+}
+
+@media (min-width: 768px) {
+	.jira-user-detail-panel {
+		display: block !important;
+	}
+	.row_dropdown {
+		display: none !important;
+	}
+}
+
+@media (max-width: 767px) {
+	.jira-user-detail-panel {
+		display: none !important;
+	}
+	.row_dropdown {
+		display: table-row !important;
 	}
 }

@@ -1,9 +1,32 @@
 define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 	
 	var users = [
-		{"id": "1", "name": "name-1", "time": "8h"},
-		{"id": "2", "name": "name-2", "time": "8h"},
-		{"id": "3", "name": "name-3", "time": "8h"}, 
+		{
+			userId: "1", 
+			userName: "name1.username1",
+			userEmailAddress: "some1",
+			time: "8h",
+			worklogs: [
+				{
+					issueIdOrKey: "i1",
+					issueName: "issue-1",
+					userComment: "comment1",
+					
+				}
+			],
+		},
+		{
+			userId: "2", 
+			userName: "name2 username2",
+			userEmailAddress: "some2",
+			time: "8h"
+		},
+		{
+			userId: "3", 
+			userName: "Name3 Username3",
+			userEmailAddress: "some3",
+			time: "8h"
+		},
     ];
 	
 	var user = {
@@ -108,7 +131,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		},
 		
 		template: _.template(
-			'<td class="table_name user_details" data-id="<%= id %>"><a ><%= name %></a></td>\
+			'<td class="table_name user_details" data-id="<%= userId %>"><a ><%= userName %></a></td>\
 			<td class="table_date"><%= time %></td>\
 			<td class="table_date"><%= time %></td>\
 			<td class="table_date"><%= time %></td>\
@@ -123,9 +146,9 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 			return this;
 		},
 		
-		showDetails: function(e, id) {
-			new App.Views.UserDetails();
-			new App.Views.DaysTable();
+		showDetails: function(e) {
+			new App.Views.UserDetails({id: e.currentTarget});
+			new App.Views.DaysTable({id: e.currentTarget});
 		}
 
 	});
@@ -139,13 +162,15 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		),
 		
 		initialize: function () {
-			this.model = new App.Models.User( user );
+			this.model = new App.Models.UserLogs( user );
 			this.render();
 		},
 	
 		render: function () {
+			//$(this.id).parent().next().find("table").html( this.template(this.model.toJSON()) );
+			console.log($("#users-detail-table").html());
+			$(this.id).parent().next().find("table").html( $("#users-detail-table").html() );
 			this.$el.html( this.template(this.model.toJSON()) );
-			return this;
 		}
 
 	});
@@ -174,6 +199,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		initialize: function () {
 			this.collection = new App.Collections.Issues( user.data );
 			this.render();
+			this.renderForMobile();
 		},
 		
 		template: _.template(
@@ -197,8 +223,29 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 					$(id).append($table);
 				}				
 			}, this);
+					
 		},
-				
+		
+		renderForMobile: function() {
+			var that = this, issueView, arr, tableId, $table;
+			_.each(this.collection.models, function (item) {
+				arr = item.get("issues"),
+				tableId = "#"+item.get("time"),
+				$table = $("<table class='table'></table>");
+				$(this.id).parent().next().find("table:first").append( this.template(item.toJSON()) );
+				for (var i=0; i<arr.length; i++) {
+					issueView = new App.Views.IssueItem({
+						model: new App.Models.Issue(arr[i])
+					});
+					$table.append(issueView.render().el);
+					$(tableId).append($table);
+				}				
+			}, this);
+			/*if ( $(window).width() < 768 ) {
+				$(this.id).parent().next().fadeIn();
+			} */
+		}
+		
 	});
 	
 	new App.Views.UsersTable();
