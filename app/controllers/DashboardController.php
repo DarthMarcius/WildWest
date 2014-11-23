@@ -18,9 +18,13 @@ class DashboardController extends Controller {
      * Main paige of dashboard.
      */
     public function index(){
-        $dataToView = array(); //add here data which we can render in view
-        
-        
+        //get grace period form DB, if exists show it in view
+        $gp = Graceperiod::first();
+        //add here data which we can render in view
+        $dataToView = array(
+            'grace_settings' => $gp ? $gp->days.'d '.$gp->hours.'h '.$gp->minutes.'m' : null
+        );
+                
         return View::make('dashboard.index', $dataToView);
     }
     

@@ -57,8 +57,9 @@
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion2" href="#grace-settings" aria-expanded="true" aria-controls="grace-settings">
-                                Grace settings
+                                Grace settings:
                             </a>
+                            {{{ $grace_settings or '0d 0h 0m' }}}
                         </h4>
                     </div>
                     <div id="grace-settings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
