@@ -110,7 +110,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="jira-users-panel col-lg-7 col-md-7 col-sm-7">
+            <div class="jira-users-panel col-lg-12 col-md-12 col-sm-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <h3 class="panel-title">Users for current week</h3>
@@ -135,22 +135,11 @@
                     </div> 
                 </div>
             </div>
-            <div class="jira-user-detail-panel col-lg-5 col-md-5 col-sm-5">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">User detail page</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div class="table-responsive">
-                            <table class="table" id="users-detail-table">
-                            
-                            </table>
-                        </div>
-                    </div> 
-                </div>
-            </div>
         </div>
     </div>
+	<div id="layer" style="display:none">
+		<div id="loading"></div>
+	</div>
     @include('modals.dashboardModals')
     @include('footers.index')
     @include('js_footers.index')

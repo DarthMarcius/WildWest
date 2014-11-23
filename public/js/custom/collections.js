@@ -1,6 +1,14 @@
 define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 	var users = [];
 	
+	$(document).ajaxStart(function () {
+        $('#layer').show();
+    });
+
+    $(document).ajaxStop(function () {
+        $('#layer').hide();
+    });
+	
 	$.ajax({
 		type: "GET",
 		url: "http://hack/jira/ajaxshowCountedLogs",
