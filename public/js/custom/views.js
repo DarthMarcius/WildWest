@@ -1,107 +1,26 @@
 define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 	
-	var users = [
-		{
-			userId: "1", 
-			userName: "name1.username1",
-			userEmailAddress: "some1",
-			time: "8h",
-			worklogs: [
-				{
-					issueIdOrKey: "i1",
-					issueName: "issue-1",
-					userComment: "comment1",
-					
-				}
-			],
-		},
-		{
-			userId: "2", 
-			userName: "name2 username2",
-			userEmailAddress: "some2",
-			time: "8h"
-		},
-		{
-			userId: "3", 
-			userName: "Name3 Username3",
-			userEmailAddress: "some3",
-			time: "8h"
-		},
-    ];
-	
-	var user = {
-		id: "1", 
-		name: "John",
-		surname: "Smith",
-		time: "8h",
-		data: [
-			{
-				time: "17-11",
-				issues: [
-					{
-						id: "id-1",
-						name: "name-1",
-						logwork: "3h",
-						comment: "comment-1",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
-					},
-					{
-						id: "id-2",
-						name: "name-2",
-						logwork: "1h",
-						comment: "comment-2",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/task.png"
-					}
-				]
-			},	
-			{
-				time: "18-11",
-				issues: [
-					{
-						id: "id-3",
-						name: "name-1",
-						logwork: "3h",
-						comment: "comment-1",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/bug.png"
-					},
-					{
-						id: "id-4",
-						name: "name-2",
-						logwork: "1h",
-						comment: "comment-2",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/subtask_alternate.png"
-					}
-				]
-			},
-			{
-				time: "19-11",
-				issues: [
-					{
-						id: "id-5",
-						name: "name-1",
-						logwork: "3h",
-						comment: "comment-1",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/bug.png"
-					},
-					{
-						id: "id-6",
-						name: "name-2",
-						logwork: "1h",
-						comment: "comment-2",
-						icon: "https://dev.osf-global.com/jira/images/icons/issuetypes/task.png"
-					}
-				]
-			},				
-		]
-	}; 
-    
+	(function(){
+		var date = new Date();
+		var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+		var i = 0;
+		if ( date.getDay() !== 0 ) {
+			date.setDate( date.getDate() + ( 7 - date.getDay() ) );
+		}
+		$($("#users-table thead tr td").get().reverse()).each(function() {
+			i++;
+			$(this).attr("data-date", date.getDate() + "/" +  (date.getMonth() + 1) );
+			$(this).html( week[date.getDay()] + " " + date.getDate() + "/" +  (date.getMonth() + 1) );
+			date.setDate(date.getDate()-1);
+		});
+		$("#users-table thead .table_name").html("");
+	}());
 	
 	App.Views.UsersTable = Backbone.View.extend({
 	
 		el: $("#users-table"),
 		
 		initialize: function () {
-			this.collection = new App.Collections.Users( users );
 			this.render();
 		},
 		
@@ -116,7 +35,7 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 			var userView = new App.Views.UserItem({
 				model: item
 			});
-			this.$el.append( userView.render().el);
+			userView.render();
 			this.$el.append("<tr class='row_dropdown'><td colspan='8'><table class='table'><tbody></tbody></table></td></tr>");
 		}
 		
@@ -126,31 +45,63 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 	
 		tagName: "tr",
 		
-		events: {
-			"click .user_details": "showDetails",
-		},
-		
 		template: _.template(
-			'<td class="table_name user_details" data-id="<%= userId %>"><a ><%= userName %></a></td>\
-			<td class="table_date"><%= time %></td>\
-			<td class="table_date"><%= time %></td>\
-			<td class="table_date"><%= time %></td>\
-			<td class="table_date"><%= time %></td>\
-			<td class="table_date"><%= time %></td>\
-			<td class="table_date"><%= time %></td>\
-			<td class="table_date"><%= time %></td>'
+			'<td class="table_name user_details" data-id="<%= userId %>"><%= userName %></td>\
+			<td class="table_date mon"></td>\
+			<td class="table_date tue"></td>\
+			<td class="table_date wed"></td>\
+			<td class="table_date thu"></td>\
+			<td class="table_date fri"></td>\
+			<td class="table_date sat"></td>\
+			<td class="table_date sun"></td>'
 		),
 	
 		render: function () {
 			this.$el.html( this.template(this.model.toJSON()) );
-			return this;
+			this.syncDates(this.$el);
+			$("#users-table").append(this.el);
+			_.each(this.model.get("worklogs"), function (item) {
+				var date = new Date(item.logDate);
+				var week = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+				var tr = $('[data-id="' + this.model.get("userId") + '"]').parent();
+				var day = week[date.getDay()];
+				date = date.getDate() + "/" +  (date.getMonth() + 1);
+				$(tr).find('[data-date="' + date + '"]').html( this.parseTime(item.logTimeInSeconds) );
+				//$(tr).find('.' +  week[date.getDay()]).html( this.parseTime(item.logTimeInSeconds) );
+			}, this);
 		},
 		
 		showDetails: function(e) {
 			new App.Views.UserDetails({id: e.currentTarget});
 			new App.Views.DaysTable({id: e.currentTarget});
+		},
+		
+		parseTime: function(sec) {
+			var h = Math.floor(sec / 3600), 
+				m = Math.floor( ( sec - h*3600 ) / 60 );
+			if ( h === 0) {
+				return m + "m";
+			} else {
+				if ( Math.floor(h) !== h ) {
+					return h + "h " + m + "m";
+				}
+				return h + "h";
+			}
+		},
+		
+		syncDates: function(el) {
+			var date = new Date();
+			var week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+			var i = 0;
+			if ( date.getDay() !== 0 ) {
+				date.setDate( date.getDate() + ( 7 - date.getDay() ) );
+			}
+			$(el.find("td:not(.table_name)").get().reverse()).each(function() {
+				i++;
+				$(this).attr("data-date", date.getDate() + "/" +  (date.getMonth() + 1) );
+				date.setDate(date.getDate()-1);
+			});
 		}
-
 	});
 	
 	App.Views.UserDetails = Backbone.View.extend({
@@ -167,8 +118,6 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 		},
 	
 		render: function () {
-			//$(this.id).parent().next().find("table").html( this.template(this.model.toJSON()) );
-			console.log($("#users-detail-table").html());
 			$(this.id).parent().next().find("table").html( $("#users-detail-table").html() );
 			this.$el.html( this.template(this.model.toJSON()) );
 		}
@@ -241,14 +190,9 @@ define(["jquery", "underscore", "backbone"], function($, _, Backbone) {
 					$(tableId).append($table);
 				}				
 			}, this);
-			/*if ( $(window).width() < 768 ) {
-				$(this.id).parent().next().fadeIn();
-			} */
 		}
 		
 	});
-	
-	new App.Views.UsersTable();
 	
 	require(["helpers"]);
 		

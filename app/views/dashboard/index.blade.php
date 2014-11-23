@@ -113,7 +113,7 @@
             <div class="jira-users-panel col-lg-7 col-md-7 col-sm-7">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Users</h3>
+                        <h3 class="panel-title">Users for current week</h3>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -121,13 +121,13 @@
 								<thead>
 									<tr>
 										<td class="table_name"></td>
-										<td class="table_date">Mon 17/11</td>
-										<td class="table_date">Tue 18/11</td>
-										<td class="table_date">Wed 19/11</td>
-										<td class="table_date">Thu 19/11</td>
-										<td class="table_date">Fri 21/11</td>
-										<td class="table_date">Sat 22/11</td>
-										<td class="table_date">Sun 23/11</td>
+										<td class="table_date"></td>
+										<td class="table_date"></td>
+										<td class="table_date"></td>
+										<td class="table_date"></td>
+										<td class="table_date"></td>
+										<td class="table_date"></td>
+										<td class="table_date"></td>
 									</tr>
 								</thead>
                             </table>
