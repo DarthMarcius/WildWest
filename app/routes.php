@@ -18,6 +18,7 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('/', 'DashboardController@index');
 	Route::get('jira/getProjects', 'JiraController@getProjects', array());
 	Route::get('jira/getUsers', 'JiraController@getUsers', array());
+	Route::get('jira/getUsers{projectName}', 'JiraController@getUsers', array());
 	Route::get('jira/getIssues', 'JiraController@getIssues', array());
 	Route::get('jira/getWorklog', 'JiraController@getWorklog', array());
 	Route::get('jira/getHistory', 'JiraController@getHistory', array());
@@ -29,6 +30,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('jira/getAllIssuesForProject', 'JiraController@getAllIssuesForProject');
 	Route::get('jira/showAllWorkLogsToProject/{projectName}', 'JiraController@showAllWorkLogsToProject');
 	Route::get('jira/showAllWorkLogsToProject', 'JiraController@showAllWorkLogsToProject');
+	Route::get('/jira/ajaxshowAllWorkLogsToProject', 'JiraController@ajaxshowAllWorkLogsToProject');
 });
 
 Route::any('login', 'BaseController@login');

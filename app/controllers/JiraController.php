@@ -64,7 +64,8 @@ class JiraController extends BaseController
      * @throws \Jyggen\Curl\Exception\CurlErrorException
      * @throws \Jyggen\Curl\Exception\ProtectedOptionException
      */
-    public function _getResponse($request){
+    public function _getResponse($request)
+    {
         $request = new \Jyggen\Curl\Request($this->url . $request);
         $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
         $request->execute();
@@ -90,20 +91,22 @@ class JiraController extends BaseController
      * @param bool $projectName
      * @return array ARRAY OF ISSUES WITH INFO
      */
-    public function getAllIssuesForProject($projectName=FALSE)
+    public function getAllIssuesForProject($projectName = FALSE)
     {
-        if($projectName===FALSE){
+        if ($projectName === FALSE) {
             $projectName = self::DEFAULT_PROJECT;
         }
-        $response = $this->_getResponse('search?jql=project%20%3D%20'.$projectName.'&maxResults=-1');
-        $objects= json_decode($response->getContent());
+        $response = $this->_getResponse('search?jql=project%20%3D%20' . $projectName . '&maxResults=-1');
+        $objects = json_decode($response->getContent());
         $allIssues = array();
         foreach ($objects->issues as $object) {
             $allIssues[] = array(
                 'issueId' => $object->id,
                 'issueKey' => $object->key,
                 'issueName' => $object->fields->summary,
-                'issueDescription'    => $object->fields->description
+                'issueDescription' => $object->fields->description,
+                'statusName' => $object->fields->status->name,
+                'projectName' => $projectName
             );
         }
 
@@ -111,21 +114,30 @@ class JiraController extends BaseController
     }
 
     /**
+     *  ALL USERS TO PROJECT
      * @return array OF ALL USERS ASSIGNED TO THE PROJECT
      * @throws \Jyggen\Curl\Exception\CurlErrorException
      * @throws \Jyggen\Curl\Exception\ProtectedOptionException
      */
-    public function getUsers()
+    public function getUsers($projectName = FALSE)
     {
-        $response = $this->_getResponse('user/assignable/multiProjectSearch?projectKeys=' . self::DEFAULT_PROJECT);
-        $objects= json_decode($response->getContent());
+        if ($projectName === FALSE) {
+            $projectName = self::DEFAULT_PROJECT;
+        }
+        $response = $this->_getResponse('user/assignable/multiProjectSearch?projectKeys=' . $projectName);
+        $objects = json_decode($response->getContent());
         $allUsers = array();
         foreach ($objects as $object) {
+            foreach ($object->avatarUrls as $avatar) {
+                $avatarUrl = $avatar;
+            }
             $allUsers[] = array(
                 'userId' => $object->name,
                 'userName' => $object->name,
                 'userEmailAddress' => $object->emailAddress,
-                'active'    => $object->active
+                'userAvatarUrl' => $avatarUrl,
+                'projectName' => $projectName,
+                'active' => $object->active
             );
         }
 
@@ -133,6 +145,7 @@ class JiraController extends BaseController
     }
 
     /**
+     * GETTING ALL WORKLOGS RELATED TO CURRENT ISSUE
      * @param $issueIdOrKey CURRENT ISSUE ID OR KEY
      * @return mixed
      * @throws \Jyggen\Curl\Exception\CurlErrorException
@@ -140,20 +153,26 @@ class JiraController extends BaseController
      */
     public function getAllWorkLogsToIssue($issueIdOrKey)
     {
-        $response = $this->_getResponse('issue/'.$issueIdOrKey.'/?expand=changelog');
-        $objects= json_decode($response->getContent());
+        $response = $this->_getResponse('issue/' . $issueIdOrKey . '/?expand=changelog');
+        $objects = json_decode($response->getContent());
         $allWorkLogs = array();
+//        var_dump($objects);
+        $projectName = $objects->fields->project->key;
+        $issueName = $objects->fields->summary;
+        $issueIconUrl = $objects->fields->issuetype->iconUrl;
         $objects = $objects->fields->worklog;
-
-        foreach ( $objects as $worklogs) {
-            if(is_array($worklogs)) {
-                foreach($worklogs as $worklog) {
+        foreach ($objects as $worklogs) {
+            if (is_array($worklogs)) {
+                foreach ($worklogs as $worklog) {
                     $allWorkLogs[] = array(
                         'userName' => $worklog->author->name,
                         'userComment' => $worklog->comment,
                         'logDate' => $worklog->started,
-                        'logTimeInSeconds'    => $worklog->timeSpentSeconds,
-                        'issueIdOrKey'  =>  $issueIdOrKey
+                        'logTimeInSeconds' => $worklog->timeSpentSeconds,
+                        'issueIdOrKey' => $issueIdOrKey,
+                        'issueName' => $issueName,
+                        'issueiconUrl' => $issueIconUrl,
+                        'projectName' => $projectName
                     );
                 }
             }
@@ -162,9 +181,14 @@ class JiraController extends BaseController
         return $allWorkLogs;
     }
 
-    public function showAllWorkLogsToProject($projectName=FALSE){
+    /**
+     * RETURN ALL LOGS TO CURREN PROJECT
+     * @param bool $projectName ПОПРАЦЮВАТИ НАД ЦИМ
+     */
+    public function showAllWorkLogsToProject($projectName = FALSE)
+    {
 
-        if($projectName===FALSE){
+        if ($projectName === FALSE) {
             $projectName = self::DEFAULT_PROJECT;
         }
         $allIssuesForProject = $this->getAllIssuesForProject($projectName);
@@ -174,9 +198,40 @@ class JiraController extends BaseController
                 $allWorkLogs[] = $workLog;
             }
         }
+        foreach ($allWorkLogs as $workLogs) {
+            foreach ($workLogs as $workLog) {
+                    foreach ($workLogs as $workLogInLoop) {
+                        if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
+                            $workLogArray[$workLog['userName']]['worklogs'][] = array(
+                                'userName'  =>  $workLogInLoop['userName'],
+                                'issueIdOrKey' => $workLogInLoop['issueIdOrKey'],
+                                'issueName' => $workLogInLoop['issueName'],
+                                'userComment' => $workLogInLoop['userComment'],
+                                'issueiconUrl' => $workLogInLoop['issueiconUrl'],
+                                'logDate'   =>  $workLogInLoop['logDate'],
+                                'logTimeInSeconds' => $workLogInLoop['logTimeInSeconds'],
+                                'projectName' => $workLogInLoop['projectName']
+                            );
+                        }
+                    }
+            }
+        }
 
-        var_dump($allWorkLogs);
+        return $workLogArray;
     }
+
+    /**
+     * @return mixed RETURN ARRAY FOR AJAX CALL
+     */
+    public function ajaxshowAllWorkLogsToProject()
+    {
+        if(Request::ajax()) {
+            $projectName = Input::get('projectName');
+            return $this->showAllWorkLogsToProject($projectName);
+
+        }
+    }
+
     /**
      * @return mixed
      * @throws \Jyggen\Curl\Exception\CurlErrorException
@@ -209,13 +264,13 @@ class JiraController extends BaseController
     public function getUsersActivity($timebegin = false, $timeend = false)
     {
 //        http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999&streams=user+IS+WildWest2&_=1416654577838
-        if ($timebegin===FALSE) {
-        $timebegin = 1416520800000;
+        if ($timebegin === FALSE) {
+            $timebegin = 1416520800000;
         }
-        IF ($timeend===FALSE) {
+        IF ($timeend === FALSE) {
             $timeend = 1516520800000;
         }
-        $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+'.$timebegin.'+'.$timeend);
+        $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+' . $timebegin . '+' . $timeend);
         $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
         $request->execute();
         $response = $request->getResponse();
@@ -225,7 +280,7 @@ class JiraController extends BaseController
         $usersActivityObject = json_decode($json)->entry;
         foreach ($usersActivityObject as $userActivityObject) {
             $allActivity[] = array(
-                'author'    =>  $userActivityObject->author->name
+                'author' => $userActivityObject->author->name
             );
             var_dump($userActivityObject);
         }
@@ -253,7 +308,7 @@ class JiraController extends BaseController
 
     public function getHistory()
     {
-        $request = new \Jyggen\Curl\Request($this->url . 'issue/HACKWIL-16?expand=changelog');
+        $request = new \Jyggen\Curl\Request($this->url . 'issue/HACKWIL-8?expand=changelog');
         $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
         $request->execute();
         $response = $request->getResponse();
