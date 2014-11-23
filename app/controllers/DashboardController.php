@@ -19,7 +19,7 @@ class DashboardController extends Controller {
      */
     public function index(){
         //get grace period form DB, if exists show it in view
-        $gp = Graceperiod::first();
+        $gp = GracePeriod::first();
         //add here data which we can render in view
         $dataToView = array(
             'grace_settings' => $gp ? $gp->days.'d '.$gp->hours.'h '.$gp->minutes.'m' : null

@@ -9,7 +9,7 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$graceperiods = Graceperiod::all();
+		$graceperiods = GracePeriod::all();
 
 		return View::make('graceperiods.index', compact('graceperiods'));
 	}
@@ -31,7 +31,7 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::only('days', 'minutes', 'hours'), Graceperiod::$rules);
+		$validator = Validator::make($data = Input::only('days', 'minutes', 'hours'), GracePeriod::$rules);
 
 		if ($validator->fails())
 		{
@@ -39,13 +39,13 @@ class GracePeriodsController extends \BaseController {
 		}
 
 		//Graceperiod::create($data);
-                $gracePeriod = Graceperiod::first();
+                $gracePeriod = GracePeriod::first();
                 if($gracePeriod){
                     //do update existing entry
                     $gracePeriod->update($data);
                 } else {
                     //create new
-                    Graceperiod::create($data);
+                    GracePeriod::create($data);
                 }
                 
 		return Redirect::to('/');
@@ -59,7 +59,7 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$graceperiod = Graceperiod::findOrFail($id);
+		$graceperiod = GracePeriod::findOrFail($id);
 
 		return View::make('graceperiods.show', compact('graceperiod'));
 	}
@@ -72,7 +72,7 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$graceperiod = Graceperiod::find($id);
+		$graceperiod = GracePeriod::find($id);
 
 		return View::make('graceperiods.edit', compact('graceperiod'));
 	}
@@ -85,9 +85,9 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$graceperiod = Graceperiod::findOrFail($id);
+		$graceperiod = GracePeriod::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Graceperiod::$rules);
+		$validator = Validator::make($data = Input::all(), GracePeriod::$rules);
 
 		if ($validator->fails())
 		{
@@ -107,7 +107,7 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		Graceperiod::destroy($id);
+		GracePeriod::destroy($id);
 
 		return Redirect::route('graceperiods.index');
 	}
