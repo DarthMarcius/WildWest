@@ -1,0 +1,1 @@
+C:\web\wamp\www\hackaton_ww\app/views/jira_worklogs/index.blade.php
