@@ -236,71 +236,109 @@ class JiraController extends BaseController
     public function ajaxshowCountedLogs()
     {
         if(Request::ajax()) {
-            $allIssuesForProject = $this->getAllIssuesForProject();
-            foreach ($allIssuesForProject as $issueProject) {
-                $workLog = $this->getAllWorkLogsToIssue($issueProject['issueKey']);
-                if (!empty($workLog)) {
-                    $allWorkLogs[] = $workLog;
-                }
+           return $this->countLogsTime();
+        }
+    }
+
+    public function countLogsTime()
+    {
+        $allIssuesForProject = $this->getAllIssuesForProject();
+        foreach ($allIssuesForProject as $issueProject) {
+            $workLog = $this->getAllWorkLogsToIssue($issueProject['issueKey']);
+            if (!empty($workLog)) {
+                $allWorkLogs[] = $workLog;
             }
-            $workLogArray = array();
-            foreach ($allWorkLogs as $workLogs) {
-                foreach ($workLogs as $workLog) {
-                    foreach ($workLogs as $workLogInLoop) {
-                        $date = explode('T', $workLogInLoop['logDate'])[0];
-                        if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
-                            $workLogArray[$workLog['userName']]['userName'] = $workLogInLoop['userName'];
-                            $workLogArray[$workLog['userName']]['worklogs']["$date"] = array(
-                                'logDate' => $date
-                            );
-                        }
+        }
+        $workLogArray = array();
+        foreach ($allWorkLogs as $workLogs) {
+            foreach ($workLogs as $workLog) {
+                foreach ($workLogs as $workLogInLoop) {
+                    $date = explode('T', $workLogInLoop['logDate'])[0];
+                    if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
+                        $workLogArray[$workLog['userName']]['userName'] = $workLogInLoop['userName'];
+                        $workLogArray[$workLog['userName']]['worklogs']["$date"] = array(
+                            'logDate' => $date
+                        );
                     }
                 }
             }
-            foreach ($allWorkLogs as $workLogs) {
-                foreach ($workLogs as $workLog) {
-                    foreach ($workLogs as $workLogInLoop) {
-                        $date = explode('T', $workLogInLoop['logDate'])[0];
-                        if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
-                            $workLogArray[$workLog['userName']]['userName'] = $workLogInLoop['userName'];
-                            if(!isset($workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'])) {
-                                $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'] = 0;
-                            }
-                            $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'] = $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds']+$workLogInLoop['logTimeInSeconds'];
-                            $workLogArray[$workLog['userName']]['worklogs']["$date"] += array(
-                                'logTimeInSeconds' => $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds']
-                            );
+        }
+        foreach ($allWorkLogs as $workLogs) {
+            foreach ($workLogs as $workLog) {
+                foreach ($workLogs as $workLogInLoop) {
+                    $date = explode('T', $workLogInLoop['logDate'])[0];
+                    if ($workLogInLoop['userName'] == $workLog['userName'] && $workLogInLoop['logDate'] == $workLog['logDate']) {
+                        $workLogArray[$workLog['userName']]['userName'] = $workLogInLoop['userName'];
+                        if(!isset($workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'])) {
+                            $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'] = 0;
                         }
+                        $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds'] = $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds']+$workLogInLoop['logTimeInSeconds'];
+                        $workLogArray[$workLog['userName']]['worklogs']["$date"] += array(
+                            'logTimeInSeconds' => $workLogArray[$workLog['userName']]['worklogs']["$date"]['logTimeInSeconds']
+                        );
                     }
+                }
+            }
+        }
+
+        return $workLogArray;
+    }
+
+    /**
+     * GENERETA USERS LIST EMAILS
+     */
+    public function generateListEmails()
+    {
+        $today = date("Y-m-d");
+        $todayM = date("m");
+        $logtimeArray = $this->countLogsTime();
+        $userListArray = array();
+        foreach ($logtimeArray as $logtimeUserArray) {
+            $userName = $logtimeUserArray['userName'];
+            foreach ($logtimeUserArray['worklogs'] as $worklog) {
+                if( $worklog['logTimeInSeconds'] < 28800) {
+                    $userListArray[$userName][] = array(
+                        'userName'  =>  $userName,
+                        'logDate'   =>  $worklog['logDate'],
+                        'needToLogInSeconds'  =>  28800-$worklog['logTimeInSeconds']
+                    );
+                    $simpleUserNameList[$userName] = $userName;
+                }
+            }
+        }
+        $allUsers = $this->getUsers();
+        foreach ( $simpleUserNameList as $user ) {
+            foreach ($allUsers as $allUser) {
+                if ($allUser['userName'] == $user) {
+                    $userInfoArray[$user] = array(
+                        'username'  =>  $allUser['userName'],
+                        'email' => $allUser['userEmailAddress'],
+                        'projectName'   =>  $allUser['projectName']
+                    );
                 }
             }
 
-            return $workLogArray;
         }
+        return $userInfoArray;
     }
+
     /**
+     *  GET ALL WORK LOGS TO THE PROJECT IF THERE ARE LESS THAN 1000 ISSUES AND LESS THAN 20 LOG IN ISSUE
+     * INFO : DECIDED TO NOT USE THIS FUNCTIONALITY AS WE ARE EXPECTING TO USE ON BIG DATA
      * @return mixed
      * @throws \Jyggen\Curl\Exception\CurlErrorException
      * @throws \Jyggen\Curl\Exception\ProtectedOptionException
      */
     public function getWorklog()
     {
-        $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project=HACKWIL&maxResults=-1&fields=worklog');
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-        $usersObject = json_decode($response->getContent());
-//        var_dump($usersObject); die;
-        $allWorkLogs = array();
-        foreach ($usersObject->issues as $userObject) {
-            var_dump($userObject->fields->worklog->worklogs);
-        }
+        $response = json_decode($this->_getResponse('search?jql=project=HACKWIL&maxResults=-1&fields=worklog'));
 
-        return View::make('pages.index');
+        return $response;
     }
 
 
     /**
+     *  FUCNTION TO GET USER ACTIVITY FOR FUTURE ANYLYZE
      * @param bool $timebegin
      * @param bool $timeend
      * @return mixed
@@ -309,59 +347,38 @@ class JiraController extends BaseController
      */
     public function getUsersActivity($timebegin = false, $timeend = false)
     {
-//        http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+1416520800000+1416607199999&streams=user+IS+WildWest2&_=1416654577838
+
         if ($timebegin === FALSE) {
             $timebegin = 1416520800000;
         }
-        IF ($timeend === FALSE) {
+        if ($timeend === FALSE) {
             $timeend = 1516520800000;
         }
-        $request = new \Jyggen\Curl\Request('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+' . $timebegin . '+' . $timeend);
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
+        $response = json_decode($this->_getResponse('http://jiratest.ofactory.biz/jira/activity?streams=update-date+BETWEEN+' . $timebegin . '+' . $timeend));
         $simple = $response->getContent();
         $xml = simplexml_load_string($simple);
         $json = json_encode($xml);
         $usersActivityObject = json_decode($json)->entry;
         foreach ($usersActivityObject as $userActivityObject) {
             $allActivity[] = array(
-                'author' => $userActivityObject->author->name
+                'author' => $userActivityObject
             );
-            var_dump($userActivityObject);
         }
-//        var_dump($allActivity);
-
-        return View::make('pages.index');
-    }
-//    public function saveUsersToDatabase(){
-//
-//
-//        return TRUE;
-//    }
-
-    public function getIssues()
-    {
-        $request = new \Jyggen\Curl\Request($this->url . 'search?jql=project%20%3D%20' . self::DEFAULT_PROJECT);
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-//        var_dump($response);
-        var_dump(json_decode($response->getContent())->issues[1]->fields);
-
-        return View::make('pages.index');
+        return $usersActivityObject;
     }
 
-    public function getHistory()
-    {
-        $request = new \Jyggen\Curl\Request($this->url . 'issue/HACKWIL-8?expand=changelog');
-        $request->setOption(CURLOPT_USERPWD, sprintf("%s:%s", $this->login, $this->password));
-        $request->execute();
-        $response = $request->getResponse();
-//        var_dump($response);
-        var_dump(json_decode($response->getContent())->changelog->histories[5]);
 
-        return View::make('pages.index');
+    /**
+     * FUNCTION TO GET ISSUE HISTORY BY KEY FOR FUTURE ANYLYZE
+     * @return mixed
+     * @throws \Jyggen\Curl\Exception\CurlErrorException
+     * @throws \Jyggen\Curl\Exception\ProtectedOptionException
+     */
+    public function getHistory($issueKey)
+    {
+        $response = json_decode($this->_getResponse('issue/'.$issueKey.'?expand=changelog'));
+
+        return $response;
     }
 
 }
