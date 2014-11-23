@@ -43,7 +43,7 @@ define(["jquery"], function($) {
                 $Modal = $(".modal");
             setTimeout(function() {
                 if($("#password-reminder-form").length) {
-                	if($Modal.attr("id") == "login-failed-modal") {
+                	if($Modal.find(".modal-body b").html() == "Your username or password is invalid. Please try another one.") {
                 		return
                 	}
                 }
@@ -59,7 +59,7 @@ define(["jquery"], function($) {
 				
 			
 
-			$userName.focus(function(ev) {console.log("asdasd")
+			$userName.focus(function(ev) {
 				$loginForm.find("*").tooltip("destroy");
 				if($(ev.target).closest(".form-group").hasClass("has-error")) {
 					$(ev.target).closest(".form-group").removeClass("has-error");
@@ -73,7 +73,7 @@ define(["jquery"], function($) {
 				}
 			});
 
-			$userName.blur(function(ev) {console.log("sdf")
+			$userName.blur(function(ev) {
 				if(!App.Helpers.validateInputLength($(ev.target))) {
 					$(ev.target).closest(".form-group").addClass("has-error");
 				}
