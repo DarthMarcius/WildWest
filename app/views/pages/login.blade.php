@@ -42,6 +42,7 @@
                     </div>
                     
                 </form> 
+                <a href="{{ URL::to('password/remind') }}">Remind password</a>
             </div>
         </div>
     </div>

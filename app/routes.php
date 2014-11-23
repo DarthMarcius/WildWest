@@ -33,13 +33,8 @@ Route::group(array('before' => 'auth'), function(){
 
 Route::any('login', 'BaseController@login');
 Route::any('logout', 'BaseController@logout');
+Route::controller('password', 'RemindersController'); //routes for remind and reset password
 
-/*
-Route::get('/', function()
-{
-	return View::make('pages.index');            
-});
-*/
 Route::get('db_test', 'DbController@showTest');
 
 

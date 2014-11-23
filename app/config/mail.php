@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'noreply@embro.in.ua', 'name' => 'WildWest team'),
 
 	/*
 	|--------------------------------------------------------------------------

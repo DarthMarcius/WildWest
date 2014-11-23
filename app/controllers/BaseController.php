@@ -22,16 +22,6 @@ class BaseController extends Controller {
      * admin|test
      * super-admin|test
      * 
---
--- Дамп даних таблиці `users`
---
-
-INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'user', '$2y$10$wSISk38mPVOsO6EXdqSzDOFGE.TngJxoQJ9eMXhVoDf0r9ivgR.gq', 0, 'V7S8II8NXI8dFdr0J3CEDQ6VdUpLKnj7APbMN2WXMlJv6bFyRSGmA9zMKiyn', '0000-00-00 00:00:00', '2014-11-22 11:55:30'),
-(3, 'admin', '$2y$10$wSISk38mPVOsO6EXdqSzDOFGE.TngJxoQJ9eMXhVoDf0r9ivgR.gq', 0, 'UtqKRGWGs3cfBBEfOwjT4YbPUJn09NznRTzmFqqqzfe7CJSJguCHrJP5MY1K', '0000-00-00 00:00:00', '2014-11-22 11:55:42'),
-(4, 'super-admin', '$2y$10$wSISk38mPVOsO6EXdqSzDOFGE.TngJxoQJ9eMXhVoDf0r9ivgR.gq', 0, 'uePyKm57R3BALHiTHUJP1wMog16HPNEwDlq4UwOTfIzQdg6yVkW10ql9NBoO', '0000-00-00 00:00:00', '2014-11-22 11:56:00');
-
-     * 
      * @return void
      */
     public function login(){
@@ -39,11 +29,11 @@ INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, 
             //redirect to previous page or to homepage when user is already logged in
             return Redirect::to('/');
         }
-        $email = Input::get('name');
+        $username = Input::get('name');
         $password = Input::get('password');
-        if( $email && $password ){
+        if( $username && $password ){
             //validate form data
-            if (Auth::attempt(array('email' => $email, 'password' => $password)))
+            if (Auth::attempt(array('username' => $username, 'password' => $password)))
             {
                 //redirect to homepage
                 return Redirect::to('/');
@@ -52,7 +42,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, 
         }
         //pass to view entered|default values
         $visitor_data = array(
-            'name' => $email
+            'name' => $username
         );
         
         return View::make('pages.login', array('visitor_data' => $visitor_data));
@@ -85,7 +75,6 @@ INSERT INTO `users` (`id`, `email`, `password`, `permission`, `remember_token`, 
         //Mail::pretend();
         Mail::send('emails.user_notification', $userData, function($message)
         {
-            $message->from('noreply@wildwest.osf-global.com', 'WildWest team');
             $message->to('andriy.leshchuk@osf-global.com', 'WildWest1')->subject('Missed hours on JIRA!');
         });
         return 'Notification successfully sent.';
