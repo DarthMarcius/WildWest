@@ -1,17 +1,17 @@
 require.config({
-	baseUrl: "./js",
+	baseUrl: siteRoot+"/js",
 	paths: {
-		"jquery": "bower_components/jquery/dist/jquery.min",
-		"underscore": "bower_components/underscore/underscore-min",
-		"backbone": "bower_components/backbone/backbone.min",
-		"bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min",
-		"app": "custom/compressed/app.min",
-		"helpers": "custom/compressed/helpers.min",
-		"formValidations": "custom/compressed/formValidations",
+		"jquery": siteRoot+"/js/bower_components/jquery/dist/jquery.min",
+		"underscore": siteRoot+"/js/bower_components/underscore/underscore-min",
+		"backbone": siteRoot+"/js/bower_components/backbone/backbone.min",
+		"bootstrap": siteRoot+"/js/bower_components/bootstrap/dist/js/bootstrap.min",
+		"app": siteRoot+"/js/custom/compressed/app.min",
+		"helpers": siteRoot+"/js/custom/compressed/helpers.min",
+		"formValidations": siteRoot+"/js/custom/compressed/formValidations.min",
 
-		"models": "custom/compressed/models.min",
-		"views": "custom/compressed/views.min",
-		"collections": "custom/compressed/collections.min",
+		"models": siteRoot+"/js/custom/compressed/models.min",
+		"views": siteRoot+"/js/custom/compressed/views.min",
+		"collections": siteRoot+"/js/custom/compressed/collections.min",
 		//models
 		
 		//views

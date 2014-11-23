@@ -12,9 +12,13 @@
     <!-- Google Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Ruda:400,900,700' rel='stylesheet' type='text/css'>  
     
-    <link rel="stylesheet" href="css/main.min.css" type="text/css">
+    <link rel="stylesheet" href="{{Request::root()}}/css/main.min.css" type="text/css">
   </head>
   <body>
+      <script>
+      var siteRoot = "{{Request::root()}}";
+      </script>
+      
       @yield('content')
   </body>
 

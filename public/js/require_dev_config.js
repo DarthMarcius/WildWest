@@ -1,17 +1,17 @@
 require.config({
-	baseUrl: "./js",
+	baseUrl: siteRoot+"/js",
 	paths: {
-		"jquery": "bower_components/jquery/dist/jquery",
-		"underscore": "bower_components/underscore/underscore",
-		"backbone": "bower_components/backbone/backbone",
-		"bootstrap": "bower_components/bootstrap/dist/js/bootstrap",
-		"formValidations": "custom/formValidations",
+		"jquery": siteRoot+"/js/bower_components/jquery/dist/jquery",
+		"underscore": siteRoot+"/js/bower_components/underscore/underscore",
+		"backbone": siteRoot+"/js/bower_components/backbone/backbone",
+		"bootstrap": siteRoot+"/js/bower_components/bootstrap/dist/js/bootstrap",
+		"formValidations": siteRoot+"/js/custom/formValidations",
 		
-		"app": "custom/app",	
-		"models": "custom/models",
-		"collections": "custom/collections",
-		"helpers": "custom/helpers",
-		"views": "custom/views",
+		"app": siteRoot+"/js/custom/app",	
+		"models": siteRoot+"/js/custom/models",
+		"collections": siteRoot+"/js/custom/collections",
+		"helpers": siteRoot+"/js/custom/helpers",
+		"views": siteRoot+"/js/custom/views",
 	}
 });
 require(["app"]);
