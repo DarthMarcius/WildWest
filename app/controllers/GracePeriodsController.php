@@ -21,7 +21,7 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('graceperiods.create');
+            return View::make('graceperiods.create');
 	}
 
 	/**
@@ -31,16 +31,24 @@ class GracePeriodsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Graceperiod::$rules);
+		$validator = Validator::make($data = Input::only('days', 'minutes', 'hours'), Graceperiod::$rules);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Graceperiod::create($data);
-
-		return Redirect::route('graceperiods.index');
+		//Graceperiod::create($data);
+                $gracePeriod = Graceperiod::first();
+                if($gracePeriod){
+                    //do update existing entry
+                    $gracePeriod->update($data);
+                } else {
+                    //create new
+                    Graceperiod::create($data);
+                }
+                
+		return Redirect::to('/');
 	}
 
 	/**

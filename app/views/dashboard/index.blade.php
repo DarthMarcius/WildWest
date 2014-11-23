@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="jira-users-panel col-lg-12 col-md-12 col-sm-12">
-            <div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+            <div class="panel-group hidden" id="accordion1" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-primary">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
@@ -64,7 +64,7 @@
                     <div id="grace-settings" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
                         <div class="panel-body container">
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                {{ Form::open(array('url' => '/', 'role' => 'form', 'id' => 'form-grace', 'class' => 'form-horizontal')) }}
+                                {{ Form::open(array('route' => 'grace_periods.store', 'role' => 'form', 'id' => 'form-grace', 'class' => 'form-horizontal')) }}
                                     <div class="form-group">
                                         <h2 class="text-center text-info">Please set the notifications grace period</h2>
                                     </div>

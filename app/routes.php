@@ -40,7 +40,8 @@ Route::controller('password', 'RemindersController'); //routes for remind and re
 Route::resource('jira_users', 'JiraUsersController'); //CRUD routes for jira_users
 Route::resource('jira_issues', 'JiraIssuesController'); //CRUD routes for jira_issues
 Route::resource('jira_worklogs', 'JiraWorklogsController'); //CRUD routes for jira_worklogs
-Route::resource('grace_periods', 'GracePeriodsController'); // CRUD routes for grace_periods
+Route::resource('grace_periods', 'GracePeriodsController',
+                array('only' => array('store'))); // CRUD routes for grace_periods
 
 Route::get('/test', function()
 {
