@@ -10,7 +10,7 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-//add CSRF protection for all routes
+//add CSRF protection for all routes on POST
 Route::when('*', 'csrf', array('post'));
 
 //route to application main page
@@ -39,10 +39,7 @@ Route::controller('password', 'RemindersController'); //routes for remind and re
 Route::resource('jira_users', 'JiraUsersController'); //CRUD routes for jira_users
 Route::resource('jira_issues', 'JiraIssuesController'); //CRUD routes for jira_issues
 Route::resource('jira_worklogs', 'JiraWorklogsController'); //CRUD routes for jira_worklogs
-
-
-Route::get('db_test', 'DbController@showTest');
-
+Route::resource('grace_periods', 'GracePeriodsController'); // CRUD routes for grace_periods
 
 Route::get('/test', function()
 {
